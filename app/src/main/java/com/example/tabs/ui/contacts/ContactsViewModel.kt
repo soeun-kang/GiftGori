@@ -1,13 +1,13 @@
-package com.example.tabs.ui.dashboard
+package com.example.tabs.ui.contacts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class ContactsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This is contacts Fragment"
     }
     val text: LiveData<String> = _text
 }
