@@ -1,15 +1,13 @@
 package com.example.tabs.ui.gallery
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewpager2.widget.ViewPager2
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tabs.databinding.FragmentGalleryBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class GalleryFragment : Fragment() {
@@ -20,41 +18,33 @@ class GalleryFragment : Fragment() {
     private lateinit var galleryAdapter: GalleryAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         galleryViewModel = ViewModelProvider(this).get(GalleryViewModel::class.java)
-        galleryViewModel.loadNames(requireContext())
 
-        val viewPager: ViewPager2 = binding.viewPager
-        val tabLayout: TabLayout = binding.tabLayout
+        // ViewPager2 어댑터 설정
+        galleryAdapter = GalleryAdapter(emptyList())
+        binding.viewPager.adapter = galleryAdapter
 
-        // Adapter setup
-        galleryAdapter = GalleryAdapter(emptyList()) // Initialize with empty list
-        viewPager.adapter = galleryAdapter
+        // 데이터 관찰 및 View 업데이트
+        galleryViewModel.personData.observe(viewLifecycleOwner) { personDetailsList ->
+            if (personDetailsList.isNotEmpty()) {
+                // ViewPager2 어댑터에 데이터 전달
+                galleryAdapter.updateData(personDetailsList)
 
-        // Observe names and update tabs and adapter
-        galleryViewModel.names.observe(viewLifecycleOwner) { names ->
-            if (names.isNotEmpty()) {
-                Log.d("GalleryFragment", "Names loaded successfully: $names")
-                galleryAdapter.updateData(names)
-
-                // Setup TabLayoutMediator
-                TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-                    tab.text = names[position]
+                // TabLayoutMediator로 탭과 ViewPager 연결
+                TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+                    tab.text = personDetailsList[position].name
                 }.attach()
-            } else {
-                Log.d("GalleryFragment", "Names list is empty")
             }
         }
 
-        galleryViewModel.personDetails.observe(viewLifecycleOwner) { details ->
-            binding.personDetailsTextView.text = details
-        }
+        // ViewModel에서 데이터 로드
+        galleryViewModel.loadPersonData(requireContext())
 
         return root
     }
