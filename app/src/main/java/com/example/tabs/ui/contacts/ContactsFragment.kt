@@ -6,12 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tabs.databinding.FragmentContactsBinding
 
 class ContactsFragment : Fragment() {
 
     private var _binding: FragmentContactsBinding? = null
     private val binding get() = _binding!!
+    private var _viewModel: ContactsViewModel? = null
+    private val viewModel get() = _viewModel!!
+    private var _adapter: ContactsAdapter? = null
+    private val adapter get() = _adapter!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,9 +27,13 @@ class ContactsFragment : Fragment() {
         val root: View = binding.root
 
 
-        val contactsViewModel =
+        _viewModel =
             ViewModelProvider(this).get(ContactsViewModel::class.java)
-        contactsViewModel.manageJson.logging()
+        viewModel.manageJson.logging()
+
+        val contactAdapter = ContactsAdapter(viewModel.manageJson.dataList)
+        binding.recyclerView.adapter = contactAdapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         return root
     }
@@ -32,5 +41,7 @@ class ContactsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        _viewModel = null
+        _adapter = null
     }
 }
