@@ -1,14 +1,575 @@
 [
   {
-    "name": "홍길동",
-    "phoneNumber": "010-1234-5678"
+    "name": "Elon Musk",
+    "phoneNumber": "+91-555-369-1734",
+    "bDay": "1971-06-28",
+    "recentContact": 482,
+    "presentHistory": [
+      {
+        "date": "2018-03-27",
+        "gift": "Rocket Model"
+      },
+      {
+        "date": "2023-12-15",
+        "gift": "Mars Colony Poster"
+      }
+    ]
   },
   {
-    "name": "김철수",
-    "phoneNumber": "010-9876-5432"
+    "name": "Jeff Bezos",
+    "phoneNumber": "+56-555-926-7662",
+    "bDay": "1964-01-12",
+    "recentContact": 459,
+    "presentHistory": [
+      {
+        "date": "2021-12-20",
+        "gift": "Space-themed Watch"
+      }
+    ]
   },
   {
-    "name": "이영희",
-    "phoneNumber": "010-1111-2222"
+    "name": "Taylor Swift",
+    "phoneNumber": "+22-555-419-6525",
+    "bDay": "1989-12-13",
+    "recentContact": 462,
+    "presentHistory": [
+      {
+        "date": "2016-07-26",
+        "gift": "Guitar"
+      },
+      {
+        "date": "2018-05-08",
+        "gift": "Notebook with Lyrics"
+      },
+      {
+        "date": "2020-09-26",
+        "gift": "Guitar"
+      }
+    ]
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "phoneNumber": "+48-555-887-5396",
+    "bDay": "1985-02-05",
+    "recentContact": 467,
+    "presentHistory": [
+      {
+        "date": "2017-04-19",
+        "gift": "Football Boots"
+      },
+      {
+        "date": "2018-02-10",
+        "gift": "Signed Football"
+      },
+      {
+        "date": "2019-09-03",
+        "gift": "Signed Football"
+      },
+      {
+        "date": "2020-11-04",
+        "gift": "Portugal Jersey"
+      },
+      {
+        "date": "2023-04-09",
+        "gift": "Signed Football"
+      }
+    ]
+  },
+  {
+    "name": "Lionel Messi",
+    "phoneNumber": "+27-555-316-2693",
+    "bDay": "1987-06-24",
+    "recentContact": 473,
+    "presentHistory": [
+      {
+        "date": "2023-11-30",
+        "gift": "Soccer Ball"
+      }
+    ]
+  },
+  {
+    "name": "Barack Obama",
+    "phoneNumber": "+59-555-807-1406",
+    "bDay": "1961-08-04",
+    "recentContact": 461,
+    "presentHistory": [
+      {
+        "date": "2016-08-04",
+        "gift": "Inspirational Calendar"
+      },
+      {
+        "date": "2016-09-11",
+        "gift": "Inspirational Calendar"
+      },
+      {
+        "date": "2018-11-08",
+        "gift": "Autobiography Book"
+      },
+      {
+        "date": "2018-12-17",
+        "gift": "Inspirational Calendar"
+      },
+      {
+        "date": "2021-08-19",
+        "gift": "Inspirational Calendar"
+      }
+    ]
+  },
+  {
+    "name": "Oprah Winfrey",
+    "phoneNumber": "+51-555-129-7095",
+    "bDay": "1954-01-29",
+    "recentContact": 6,
+    "presentHistory": [
+      {
+        "date": "2017-04-28",
+        "gift": "Inspirational Poster"
+      }
+    ]
+  },
+  {
+    "name": "Bill Gates",
+    "phoneNumber": "+12-555-499-4790",
+    "bDay": "1955-10-28",
+    "recentContact": 490,
+    "presentHistory": [
+      {
+        "date": "2016-06-21",
+        "gift": "Smartphone"
+      },
+      {
+        "date": "2017-09-29",
+        "gift": "Smartphone"
+      },
+      {
+        "date": "2021-10-06",
+        "gift": "Book Set"
+      },
+      {
+        "date": "2021-12-06",
+        "gift": "Book Set"
+      }
+    ]
+  },
+  {
+    "name": "Mark Zuckerberg",
+    "phoneNumber": "+3-555-291-6666",
+    "bDay": "1984-05-14",
+    "recentContact": 457,
+    "presentHistory": [
+      {
+        "date": "2015-09-14",
+        "gift": "Virtual Reality Headset"
+      },
+      {
+        "date": "2015-10-29",
+        "gift": "Meta Logo Mug"
+      },
+      {
+        "date": "2021-02-23",
+        "gift": "Custom T-shirt"
+      }
+    ]
+  },
+  {
+    "name": "Ariana Grande",
+    "phoneNumber": "+73-555-788-9666",
+    "bDay": "1993-06-26",
+    "recentContact": 474,
+    "presentHistory": [
+      {
+        "date": "2017-02-18",
+        "gift": "Perfume Set"
+      },
+      {
+        "date": "2018-08-28",
+        "gift": "Stage Costume"
+      },
+      {
+        "date": "2021-03-05",
+        "gift": "Stage Costume"
+      },
+      {
+        "date": "2021-11-17",
+        "gift": "Perfume Set"
+      }
+    ]
+  },
+  {
+    "name": "Dwayne Johnson",
+    "phoneNumber": "+73-555-783-4094",
+    "bDay": "1972-05-02",
+    "recentContact": 17,
+    "presentHistory": [
+      {
+        "date": "2015-09-05",
+        "gift": "Protein Shaker"
+      },
+      {
+        "date": "2015-11-05",
+        "gift": "Custom Dumbbells"
+      },
+      {
+        "date": "2019-05-09",
+        "gift": "Action Movie DVD"
+      },
+      {
+        "date": "2022-06-02",
+        "gift": "Protein Shaker"
+      },
+      {
+        "date": "2022-12-18",
+        "gift": "Custom Dumbbells"
+      }
+    ]
+  },
+  {
+    "name": "Joe Biden",
+    "phoneNumber": "+56-555-690-2766",
+    "bDay": "1942-11-20",
+    "recentContact": 23,
+    "presentHistory": [
+      {
+        "date": "2016-01-01",
+        "gift": "Commemorative Plaque"
+      },
+      {
+        "date": "2021-03-01",
+        "gift": "American Flag Pin"
+      }
+    ]
+  },
+  {
+    "name": "Narendra Modi",
+    "phoneNumber": "+34-555-614-4977",
+    "bDay": "1950-09-17",
+    "recentContact": 34,
+    "presentHistory": [
+      {
+        "date": "2016-10-14",
+        "gift": "Handcrafted Statue"
+      },
+      {
+        "date": "2018-06-30",
+        "gift": "Silk Scarf"
+      },
+      {
+        "date": "2020-10-12",
+        "gift": "Silk Scarf"
+      },
+      {
+        "date": "2023-12-02",
+        "gift": "Handcrafted Statue"
+      }
+    ]
+  },
+  {
+    "name": "Angela Merkel",
+    "phoneNumber": "+87-555-192-6159",
+    "bDay": "1954-07-17",
+    "recentContact": 20,
+    "presentHistory": [
+      {
+        "date": "2020-04-25",
+        "gift": "German Porcelain Set"
+      },
+      {
+        "date": "2022-03-16",
+        "gift": "German Porcelain Set"
+      }
+    ]
+  },
+  {
+    "name": "Kylie Jenner",
+    "phoneNumber": "+37-555-879-7441",
+    "bDay": "1997-08-10",
+    "recentContact": 468,
+    "presentHistory": [
+      {
+        "date": "2015-03-14",
+        "gift": "Makeup Kit"
+      },
+      {
+        "date": "2019-08-23",
+        "gift": "Diamond Bracelet"
+      },
+      {
+        "date": "2020-01-01",
+        "gift": "Diamond Bracelet"
+      },
+      {
+        "date": "2021-10-01",
+        "gift": "Makeup Kit"
+      },
+      {
+        "date": "2023-05-02",
+        "gift": "Makeup Kit"
+      }
+    ]
+  },
+  {
+    "name": "Rihanna",
+    "phoneNumber": "+58-555-225-9073",
+    "bDay": "1988-02-20",
+    "recentContact": 5,
+    "presentHistory": [
+      {
+        "date": "2015-03-30",
+        "gift": "Custom Sunglasses"
+      },
+      {
+        "date": "2015-12-05",
+        "gift": "Fenty Beauty Set"
+      },
+      {
+        "date": "2016-12-25",
+        "gift": "Designer Dress"
+      },
+      {
+        "date": "2017-02-22",
+        "gift": "Designer Dress"
+      },
+      {
+        "date": "2018-12-17",
+        "gift": "Designer Dress"
+      },
+      {
+        "date": "2019-10-06",
+        "gift": "Fenty Beauty Set"
+      }
+    ]
+  },
+  {
+    "name": "Tom Holland",
+    "phoneNumber": "+19-555-686-5513",
+    "bDay": "1996-06-01",
+    "recentContact": 465,
+    "presentHistory": [
+      {
+        "date": "2016-03-05",
+        "gift": "Custom Sneakers"
+      },
+      {
+        "date": "2020-07-23",
+        "gift": "Spider-Man Figure"
+      },
+      {
+        "date": "2021-09-30",
+        "gift": "Signed Comic Book"
+      },
+      {
+        "date": "2023-03-14",
+        "gift": "Signed Comic Book"
+      }
+    ]
+  },
+  {
+    "name": "Emma Watson",
+    "phoneNumber": "+3-555-628-4587",
+    "bDay": "1990-04-15",
+    "recentContact": 486,
+    "presentHistory": [
+      {
+        "date": "2016-10-17",
+        "gift": "Custom Bracelet"
+      },
+      {
+        "date": "2022-11-08",
+        "gift": "Signed Book"
+      },
+      {
+        "date": "2022-12-11",
+        "gift": "Signed Book"
+      }
+    ]
+  },
+  {
+    "name": "Keanu Reeves",
+    "phoneNumber": "+22-555-589-9588",
+    "bDay": "1964-09-02",
+    "recentContact": 478,
+    "presentHistory": []
+  },
+  {
+    "name": "Will Smith",
+    "phoneNumber": "+35-555-405-2150",
+    "bDay": "1968-09-25",
+    "recentContact": 479,
+    "presentHistory": [
+      {
+        "date": "2018-01-01",
+        "gift": "Leather Jacket"
+      },
+      {
+        "date": "2018-12-16",
+        "gift": "Comedy Script"
+      },
+      {
+        "date": "2021-02-18",
+        "gift": "Comedy Script"
+      }
+    ]
+  },
+  {
+    "name": "Beyonc\u00e9 Knowles",
+    "phoneNumber": "+97-555-513-3030",
+    "bDay": "1981-09-04",
+    "recentContact": 490,
+    "presentHistory": [
+      {
+        "date": "2020-01-11",
+        "gift": "Concert Tickets"
+      },
+      {
+        "date": "2020-04-03",
+        "gift": "Custom Mic Stand"
+      }
+    ]
+  },
+  {
+    "name": "Chris Hemsworth",
+    "phoneNumber": "+13-555-352-8451",
+    "bDay": "1983-08-11",
+    "recentContact": 478,
+    "presentHistory": [
+      {
+        "date": "2018-05-26",
+        "gift": "Thor Hammer Replica"
+      },
+      {
+        "date": "2020-06-17",
+        "gift": "Workout Gear"
+      }
+    ]
+  },
+  {
+    "name": "Shah Rukh Khan",
+    "phoneNumber": "+20-555-343-3873",
+    "bDay": "1965-11-02",
+    "recentContact": 9,
+    "presentHistory": [
+      {
+        "date": "2019-09-01",
+        "gift": "Bollywood Memorabilia"
+      },
+      {
+        "date": "2021-08-15",
+        "gift": "Signed Photo"
+      }
+    ]
+  },
+  {
+    "name": "Adele",
+    "phoneNumber": "+55-555-954-5876",
+    "bDay": "1988-05-05",
+    "recentContact": 7,
+    "presentHistory": []
+  },
+  {
+    "name": "Justin Bieber",
+    "phoneNumber": "+3-555-502-6597",
+    "bDay": "1994-03-01",
+    "recentContact": 30,
+    "presentHistory": [
+      {
+        "date": "2017-10-11",
+        "gift": "Pop Song Collection"
+      },
+      {
+        "date": "2019-07-04",
+        "gift": "Pop Song Collection"
+      },
+      {
+        "date": "2021-06-29",
+        "gift": "Custom Guitar"
+      }
+    ]
+  },
+  {
+    "name": "Lady Gaga",
+    "phoneNumber": "+18-555-836-1929",
+    "bDay": "1986-03-28",
+    "recentContact": 479,
+    "presentHistory": [
+      {
+        "date": "2017-10-07",
+        "gift": "Stage Outfit"
+      },
+      {
+        "date": "2018-01-27",
+        "gift": "Inspirational Jewelry"
+      },
+      {
+        "date": "2019-09-23",
+        "gift": "Stage Outfit"
+      },
+      {
+        "date": "2023-02-19",
+        "gift": "Stage Outfit"
+      }
+    ]
+  },
+  {
+    "name": "Ed Sheeran",
+    "phoneNumber": "+56-555-510-2051",
+    "bDay": "1991-02-17",
+    "recentContact": 472,
+    "presentHistory": []
+  },
+  {
+    "name": "Selena Gomez",
+    "phoneNumber": "+49-555-894-9067",
+    "bDay": "1992-07-22",
+    "recentContact": 470,
+    "presentHistory": [
+      {
+        "date": "2016-01-05",
+        "gift": "Makeup Kit"
+      },
+      {
+        "date": "2016-12-19",
+        "gift": "Makeup Kit"
+      },
+      {
+        "date": "2018-02-08",
+        "gift": "Perfume Set"
+      }
+    ]
+  },
+  {
+    "name": "Keanu Reeves",
+    "phoneNumber": "+89-555-355-3246",
+    "bDay": "1964-09-02",
+    "recentContact": 478,
+    "presentHistory": [
+      {
+        "date": "2015-07-30",
+        "gift": "Action Movie Poster"
+      },
+      {
+        "date": "2016-07-03",
+        "gift": "Motorcycle Helmet"
+      },
+      {
+        "date": "2017-01-08",
+        "gift": "Action Movie Poster"
+      },
+      {
+        "date": "2023-09-20",
+        "gift": "Action Movie Poster"
+      }
+    ]
+  },
+  {
+    "name": "Will Smith",
+    "phoneNumber": "+1-555-893-5077",
+    "bDay": "1968-09-25",
+    "recentContact": 461,
+    "presentHistory": [
+      {
+        "date": "2022-07-29",
+        "gift": "Movie Collectible"
+      }
+    ]
   }
 ]
