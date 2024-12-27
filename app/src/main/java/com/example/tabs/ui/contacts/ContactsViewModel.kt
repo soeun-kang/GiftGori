@@ -1,13 +1,14 @@
 package com.example.tabs.ui.contacts
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import com.example.tabs.utils.ManageJson
 
-class ContactsViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is contacts Fragment"
-    }
-    val text: LiveData<String> = _text
+class ContactsViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val context = application.applicationContext
+
+    val manageJson = ManageJson(context, "contacts.json")
+
 }
