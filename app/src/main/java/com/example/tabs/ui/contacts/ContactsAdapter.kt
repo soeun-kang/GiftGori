@@ -8,11 +8,27 @@ import com.example.tabs.databinding.ItemContactBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class ContactsAdapter(private var contactList: List<Contact>)
-    : RecyclerView.Adapter<ContactsAdapter.ContactViewHolder>() {
+interface OnItemClickListener {
+    fun onItemClick(contact: Contact)
+}
 
-    class ContactViewHolder(private val binding: ItemContactBinding)
+class ContactsAdapter(
+    private var contactList: List<Contact>,
+    private val listener: OnItemClickListener
+)    : RecyclerView.Adapter<ContactsAdapter.ContactViewHolder>() {
+
+    inner class ContactViewHolder(private val binding: ItemContactBinding)
         : RecyclerView.ViewHolder(binding.root) {
+        init {
+            // 아이템 클릭 이벤트
+            binding.root.setOnClickListener {
+                val position = absoluteAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val contact = contactList[position]
+                    listener.onItemClick(contact)
+                }
+            }
+        }
         fun bind(contact: Contact) { // 데이터를 바인딩하는 함수
             binding.personName.text = contact.name
             val bDayFormatter = SimpleDateFormat("MM-dd", Locale.getDefault())

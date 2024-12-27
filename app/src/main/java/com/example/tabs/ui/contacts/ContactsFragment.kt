@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tabs.databinding.FragmentContactsBinding
+import com.example.tabs.utils.models.Contact
 
-class ContactsFragment : Fragment() {
+class ContactsFragment : Fragment(), OnItemClickListener {
 
     // xml파일 바인딩
     private var _binding: FragmentContactsBinding? = null
@@ -44,7 +44,7 @@ class ContactsFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         // adapter 설정
         viewModel.contactList.observe(viewLifecycleOwner) { contacts ->
-            adapter = ContactsAdapter(contacts)
+            adapter = ContactsAdapter(contacts, this)
             binding.recyclerView.adapter = adapter
         }
     }
@@ -52,5 +52,9 @@ class ContactsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(contact: Contact) { // OnItemClickListener 인터페이스의 메서드 구현
+        println("Clicked item: $contact")
     }
 }
