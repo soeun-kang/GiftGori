@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import org.json.JSONArray
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import com.example.tabs.utils.ManageJson
 
 class GalleryViewModel : ViewModel() {
 
@@ -18,17 +19,10 @@ class GalleryViewModel : ViewModel() {
     val personDetails: LiveData<String> = _personDetails
 
     fun loadNames(context: Context) {
-        val namesList = mutableListOf<String>()
         try {
-            val inputStream = context.assets.open("famous_people_data_relevant_gifts.json")
-            val reader = BufferedReader(InputStreamReader(inputStream))
-            val jsonArray = JSONArray(reader.readText())
-            for (i in 0 until jsonArray.length()) {
-                val obj = jsonArray.getJSONObject(i)
-                namesList.add(obj.getString("name"))
-            }
-            _names.value = namesList
-            Log.d("GalleryViewModel", "Loaded names: $namesList")
+            val manageJson = ManageJson(context, "famous_people_data_relevant_gifts.json")
+            val contacts = manageJson.dataList
+            _names.value = contacts.map { it.name }
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -36,37 +30,13 @@ class GalleryViewModel : ViewModel() {
 
     fun loadDetails(context: Context, name: String) {
         try {
-            val inputStream = context.assets.open("famous_people_data_relevant_gifts.json")
-            val reader = BufferedReader(InputStreamReader(inputStream))
-            val jsonArray = JSONArray(reader.readText())
-            for (i in 0 until jsonArray.length()) {
-                val obj = jsonArray.getJSONObject(i)
-                if (obj.getString("name") == name) {
-                    val details = """
-                        Name: ${obj.getString("name")}
-                        Phone: ${obj.getString("phoneNumber")}
-                        Birthday: ${obj.getString("bDay")}
-                        Recent Gifts: ${
-                        obj.getJSONArray("presentHistory").let { history ->
-                            (0 until history.length()).joinToString { idx ->
-                                history.getJSONObject(idx).getString("gift")
-                            }
-                        }
-                    }
-                    """.trimIndent()
-                    _personDetails.value = details
-                    break
-                }
+            val manageJson = ManageJson(context, "famous_people_data_relevant_gifts.json")
+            val contact = manageJson.dataList.find { it.name == name }
+            contact?.let {
+                _personDetails.value = it.toString()
             }
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
-    private val _images = MutableLiveData<List<Int>>().apply {
-        value = listOf(
-            com.example.tabs.R.drawable.gallery_img1
-
-        )
-    }
-    val images: LiveData<List<Int>> = _images
 }
