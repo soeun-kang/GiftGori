@@ -19,6 +19,5 @@ class ContactsViewModel(application: Application) : AndroidViewModel(application
 
     fun loadContacts() {
         _contactList.value = manageJson.dataList
-
     }
 }

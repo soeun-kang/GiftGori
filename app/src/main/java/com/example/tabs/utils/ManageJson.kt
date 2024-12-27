@@ -12,6 +12,7 @@ import java.util.Date
 import java.util.Locale
 import java.text.ParseException
 
+// 한번 호출하면 자동으로 dataList에 데이터 저장
 class ManageJson(private val context: Context, fileName: String) {
 
     // dataList에 데이터 저장

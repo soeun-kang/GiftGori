@@ -6,42 +6,51 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tabs.databinding.FragmentContactsBinding
 
 class ContactsFragment : Fragment() {
 
+    // xml파일 바인딩
     private var _binding: FragmentContactsBinding? = null
     private val binding get() = _binding!!
-    private var _viewModel: ContactsViewModel? = null
-    private val viewModel get() = _viewModel!!
-    private var _adapter: ContactsAdapter? = null
-    private val adapter get() = _adapter!!
+    // 변수를 나중에 초기화 가능
+    private lateinit var viewModel: ContactsViewModel
+    private lateinit var adapter: ContactsAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // viewModel 가져옴
+        viewModel = ViewModelProvider(this)[ContactsViewModel::class.java]
+        viewModel.loadContacts()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        // binding
         _binding = FragmentContactsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //viewModel.manageJson.logging()
 
-        _viewModel =
-            ViewModelProvider(this).get(ContactsViewModel::class.java)
-        viewModel.manageJson.logging()
-
-        val contactAdapter = ContactsAdapter(viewModel.manageJson.dataList)
-        binding.recyclerView.adapter = contactAdapter
+        // recyclerView 설정
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        return root
+        // adapter 설정
+        viewModel.contactList.observe(viewLifecycleOwner) { contacts ->
+            adapter = ContactsAdapter(contacts)
+            binding.recyclerView.adapter = adapter
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        _viewModel = null
-        _adapter = null
     }
 }
