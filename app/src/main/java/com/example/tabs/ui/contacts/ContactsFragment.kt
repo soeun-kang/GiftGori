@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupWindow
 import android.widget.TextView
-import androidx.compose.ui.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.widget.LinearLayout
-import androidx.compose.ui.semantics.text
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -75,19 +73,25 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         println("Clicked item: $contact")
         val popupView = layoutInflater.inflate(R.layout.popup_contact_detail, null)
 
+        val popupInitial = popupView.findViewById<TextView>(R.id.popupInitial)
         val popupName = popupView.findViewById<TextView>(R.id.popupName)
         val popupBirthday = popupView.findViewById<TextView>(R.id.popupBirthday)
+        val popupPhoneNumber = popupView.findViewById<TextView>(R.id.popupPhoneNumber)
+        val popupRecentContact = popupView.findViewById<TextView>(R.id.popupRecentContact)
 
+        popupInitial.text = ""+contact.name[0]
         popupName.text = contact.name
         println(popupName.text)
         val bDayFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         popupBirthday.text = bDayFormatter.format(contact.bDay)
+        popupPhoneNumber.text = "Tel: " + contact.phoneNumber
+        popupRecentContact.text = "recentContact: " + contact.recentContact.toString()
 
         // popupWindow가 null인 경우에만 새로운 PopupWindow 객체를 생성
         if (popupWindow == null) {
             popupWindow = PopupWindow(
                 popupView,
-                LinearLayout.LayoutParams.WRAP_CONTENT,
+                810,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             ).apply {
                 isFocusable = true

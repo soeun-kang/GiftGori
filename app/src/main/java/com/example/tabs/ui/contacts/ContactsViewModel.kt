@@ -2,7 +2,6 @@ package com.example.tabs.ui.contacts
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.tabs.utils.ManageJson
 import com.example.tabs.utils.models.Contact
