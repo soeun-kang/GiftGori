@@ -1,19 +1,22 @@
 package com.example.tabs.ui.gallery
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.tabs.databinding.FragmentGalleryBinding
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class GalleryFragment : Fragment() {
 
     private var _binding: FragmentGalleryBinding? = null
     private val binding get() = _binding!!
+    private lateinit var galleryViewModel: GalleryViewModel
     private lateinit var galleryAdapter: GalleryAdapter
 
     override fun onCreateView(
@@ -21,21 +24,36 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
-
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // RecyclerView 초기화
-        val recyclerView: RecyclerView = binding.galleryRecyclerView
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2) // 2열 그리드
-        galleryAdapter = GalleryAdapter(emptyList()) // 초기에는 빈 데이터 리스트로 설정
-        recyclerView.adapter = galleryAdapter
+        galleryViewModel = ViewModelProvider(this).get(GalleryViewModel::class.java)
+        galleryViewModel.loadNames(requireContext())
 
-        // ViewModel 데이터 관찰
-        galleryViewModel.images.observe(viewLifecycleOwner) { images ->
-            galleryAdapter.updateData(images) // 데이터 업데이트
+        val viewPager: ViewPager2 = binding.viewPager
+        val tabLayout: TabLayout = binding.tabLayout
+
+        // Adapter setup
+        galleryAdapter = GalleryAdapter(emptyList()) // Initialize with empty list
+        viewPager.adapter = galleryAdapter
+
+        // Observe names and update tabs and adapter
+        galleryViewModel.names.observe(viewLifecycleOwner) { names ->
+            if (names.isNotEmpty()) {
+                Log.d("GalleryFragment", "Names loaded successfully: $names")
+                galleryAdapter.updateData(names)
+
+                // Setup TabLayoutMediator
+                TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                    tab.text = names[position]
+                }.attach()
+            } else {
+                Log.d("GalleryFragment", "Names list is empty")
+            }
+        }
+
+        galleryViewModel.personDetails.observe(viewLifecycleOwner) { details ->
+            binding.personDetailsTextView.text = details
         }
 
         return root

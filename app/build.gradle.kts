@@ -48,6 +48,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation("com.github.bumptech.glide:glide:4.15.1") // Glide 라이브러리 추가
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1") // Glide annotation processor 추가
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
