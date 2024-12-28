@@ -15,11 +15,18 @@
         android:id="@+id/navigation_contacts"
         android:name="com.example.tabs.ui.contacts.ContactsFragment"
         android:label="@string/title_contacts"
-        tools:layout="@layout/fragment_contacts" />
+        tools:layout="@layout/fragment_contacts"
+        app:popUpToInclusive="true"/>
+
 
     <fragment
         android:id="@+id/navigation_gallery"
         android:name="com.example.tabs.ui.gallery.GalleryFragment"
         android:label="@string/title_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery">
+        <argument
+            android:name="contactIndex"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
 </navigation>

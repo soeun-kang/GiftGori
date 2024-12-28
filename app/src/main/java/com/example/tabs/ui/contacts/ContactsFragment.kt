@@ -7,17 +7,24 @@ import android.view.ViewGroup
 import android.widget.PopupWindow
 import android.widget.TextView
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.Gravity
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.tabs.R
 import com.example.tabs.databinding.FragmentContactsBinding
 import com.example.tabs.ui.contacts.popup.PresentHistoryAdapter
+import com.example.tabs.ui.gallery.GalleryFragment
 import com.example.tabs.utils.models.Contact
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.tabs.TabLayout
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -82,7 +89,7 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         val popupPhoneNumber = popupView.findViewById<TextView>(R.id.popupPhoneNumber)
         val popupRecentContact = popupView.findViewById<TextView>(R.id.popupRecentContact)
 
-        popupInitial.text = ""+contact.name[0]
+        popupInitial.text = "" + contact.name[0]
         popupName.text = contact.name
         println(popupName.text)
         val bDayFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -119,13 +126,45 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             println("Clicked presentHistoryLayout")
             val isVisible = presentHistoryLayout.visibility == View.VISIBLE
             presentHistoryLayout.visibility = if (isVisible) View.GONE else View.VISIBLE
-            if(!isVisible){
+            if (!isVisible) {
                 // recyclerView 값 넣기
-                val recyclerView = popupView.findViewById<RecyclerView>(R.id.recyclerViewPresentHistory)
+                val recyclerView =
+                    popupView.findViewById<RecyclerView>(R.id.recyclerViewPresentHistory)
                 recyclerView.layoutManager = LinearLayoutManager(requireContext())
                 recyclerView.adapter = PresentHistoryAdapter(contact.presentHistory)
 
             }
         }
+
+        // 추천 선물 탭으로 이동
+        val buttonRecommendation = popupView.findViewById<Button>(R.id.buttonRecommendation)
+        buttonRecommendation.setOnClickListener {
+            popupWindow?.dismiss()
+
+            // Find the index of the clicked contact
+            val contactIndex =
+                viewModel.contactList.value?.indexOfFirst { it.name == contact.name } ?: -1
+            if (contactIndex != -1) {
+                Log.d(
+                    "ContactsFragment",
+                    "ContactIndex: $contactIndex for Contact: ${contact.name}"
+                )
+
+                val navController =
+                    requireActivity().findNavController(R.id.nav_host_fragment_activity_main)
+                val bundle = Bundle()
+                bundle.putInt("contactIndex", contactIndex)
+
+                navController.navigate(R.id.navigation_gallery, bundle)
+            } else {
+                println("Contact not found in Contactlist")
+            }
+        }
     }
+
+    override fun onResume() {
+        super.onResume()
+        binding.recyclerView.scrollToPosition(0)
+    }
+
 }

@@ -42,6 +42,25 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        // Navigation Bar 클릭 동작 명시적으로 처리
+        navView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    navController.navigate(R.id.navigation_home)
+                    true
+                }
+                R.id.navigation_contacts -> { // Contacts로 이동 시 항상 새로 생성
+                    navController.popBackStack(R.id.navigation_contacts, true)
+                    navController.navigate(R.id.navigation_contacts)
+                    true
+                }
+                R.id.navigation_gallery -> {
+                    navController.navigate(R.id.navigation_gallery)
+                    true
+                }
+                else -> false
+            }
+        }
         // 외부 저장소 접근 권한 요청
         requestStoragePermission()
     }
