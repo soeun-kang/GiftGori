@@ -31,7 +31,7 @@ class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
     //class giftRecyclerView1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_gallery_page, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.gallery_viewpager, parent, false)
         return ViewHolder(view)
     }
 
