@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.tabs.utils.ManageJson
-import com.example.tabs.utils.Contact
+import com.example.tabs.utils.models.Contact
 import org.json.JSONArray
 import java.text.SimpleDateFormat
 import java.util.*
