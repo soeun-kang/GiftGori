@@ -44,7 +44,7 @@ android {
 }
 
 dependencies {
-
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -58,6 +58,8 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
+    implementation("com.github.bumptech.glide:glide:4.15.1") // Glide 라이브러리 추가
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1") // Glide annotation processor 추가
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
