@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,8 +18,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tabs.R
 import com.example.tabs.databinding.FragmentContactsBinding
 import com.example.tabs.ui.contacts.popup.PresentHistoryAdapter
+import com.example.tabs.utils.ManageJson
 import com.example.tabs.utils.models.Assigned
 import com.example.tabs.utils.models.Contact
+import com.example.tabs.utils.models.Occasion
 import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -153,22 +156,34 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         }
 
 
-//        assignButton.setOnClickListener {
-//            val gson = Gson()
-//            if(isAssigned){
-//                assignButton.text = "Unassign"
-//                // remove name from occasion.json
-//                _assignedList = _assignedList.filter { it.name != contact.name }
-//                val json = gson.toJson(_assignedList)
-//                // write to occasion.json in asset
-//                requireContext().openFileOutput("occasion.json", this.applicationContext.MODE_PRIVATE).use {
-//                    it.write(json.toByteArray())
-//                }
-//            }else{
-//                assignButton.text = "Assign"
-//                // add name to occasion.json
-//            }
-//        }
+        assignButton.setOnClickListener {
+            val gson = Gson()
+            if(isAssigned){
+                assignButton.text = "Unassign"
+                // remove name from occasion.json
+                _assignedList = _assignedList.filter { it.name != contact.name }
+                val jsonString = gson.toJson(_assignedList)
+                // write to occasion.json in asset
+                val manageJson = ManageJson(requireContext())
+                manageJson.writeFileToInternalStorage("occasion.json", jsonString)
+                popupWindow?.dismiss()
+                Toast.makeText(requireContext(), getString(R.string.occasion_dismiss_success), Toast.LENGTH_SHORT).show()
+            }else{
+                assignButton.text = "Assign"
+                // add name to occasion.json
+                var occasions: List<Occasion> = contact.occasions
+                occasions = occasions + Occasion("Birthday", contact.bDay)
+                println(occasions)
+                val assigned = Assigned(contact.name, occasions)
+                _assignedList = _assignedList + assigned
+                println(_assignedList)
+                val jsonString = gson.toJson(_assignedList)
+                val manageJson = ManageJson(requireContext())
+                manageJson.writeFileToInternalStorage("occasion.json", jsonString)
+                popupWindow?.dismiss()
+                Toast.makeText(requireContext(), getString(R.string.occasion_assign_success), Toast.LENGTH_SHORT).show()
+            }
+        }
 
 
     }

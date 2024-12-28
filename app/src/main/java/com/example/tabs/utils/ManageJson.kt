@@ -72,6 +72,18 @@ class ManageJson(private val context: Context) {
                 val phoneNumber = jsonObject.getString("phoneNumber")
                 val bDayString = jsonObject.getString("bDay")
                 val bDay = parseDateString(bDayString)
+                val gender = jsonObject.getString("gender")
+                val group = jsonObject.getString("group")
+                val occasionsArray = jsonObject.getJSONArray("occasions")
+                val occasionsList = mutableListOf<Occasion>()
+                for (j in 0 until occasionsArray.length()) {
+                    val occasionObject = occasionsArray.getJSONObject(j)
+                    val occasion = occasionObject.getString("occasion")
+                    val dateString = occasionObject.getString("date")
+                    val date = parseDateString(dateString)
+                    val occasions = Occasion(occasion, date)
+                    occasionsList.add(occasions)
+                }
                 val recentContact = jsonObject.getInt("recentContact")
                 val presentHistoryArray = jsonObject.getJSONArray("presentHistory")
                 val presentHistoryList = mutableListOf<PresentHistory>()
@@ -84,7 +96,7 @@ class ManageJson(private val context: Context) {
                     presentHistoryList.add(presentHistory)
                 }
 
-                val data = Contact(name, phoneNumber, bDay, recentContact, presentHistoryList)
+                val data = Contact(name, phoneNumber, bDay, gender, group, occasionsList, recentContact, presentHistoryList)
                 dataList.add(data)
             }
         } catch (e: Exception) {
