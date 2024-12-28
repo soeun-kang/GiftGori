@@ -1,574 +1,857 @@
 [
   {
     "name": "Elon Musk",
-    "phoneNumber": "+91-555-369-1734",
     "bDay": "1971-06-28",
-    "recentContact": 482,
+    "gender": "Male",
+    "phoneNumber": "+33-555-219-4215",
+    "recentContact": 496,
+    "group": "Coworker",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2018-03-27",
-        "gift": "Rocket Model"
+        "date": "2015-01-05",
+        "gift": "Signed Jersey",
+        "price": 109300
       },
       {
-        "date": "2023-12-15",
-        "gift": "Mars Colony Poster"
+        "date": "2018-09-09",
+        "gift": "Tesla Model",
+        "price": 294300
+      },
+      {
+        "date": "2019-02-23",
+        "gift": "Signed Jersey",
+        "price": 385700
+      },
+      {
+        "date": "2023-03-08",
+        "gift": "Autobiography Book",
+        "price": 136100
       }
     ]
   },
   {
     "name": "Jeff Bezos",
-    "phoneNumber": "+56-555-926-7662",
     "bDay": "1964-01-12",
-    "recentContact": 459,
+    "gender": "Male",
+    "phoneNumber": "+60-555-742-8383",
+    "recentContact": 21,
+    "group": "Coworker",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2021-12-20",
-        "gift": "Space-themed Watch"
+        "date": "2017-01-13",
+        "gift": "Designer Dress",
+        "price": 127200
+      },
+      {
+        "date": "2017-10-22",
+        "gift": "Tesla Model",
+        "price": 365000
+      },
+      {
+        "date": "2020-03-15",
+        "gift": "Signed Jersey",
+        "price": 380300
       }
     ]
   },
   {
     "name": "Taylor Swift",
-    "phoneNumber": "+22-555-419-6525",
     "bDay": "1989-12-13",
-    "recentContact": 462,
+    "gender": "Female",
+    "phoneNumber": "+59-555-272-8047",
+    "recentContact": 12,
+    "group": "University Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2016-07-26",
-        "gift": "Guitar"
+        "date": "2015-07-07",
+        "gift": "Tesla Model",
+        "price": 172500
       },
       {
-        "date": "2018-05-08",
-        "gift": "Notebook with Lyrics"
-      },
-      {
-        "date": "2020-09-26",
-        "gift": "Guitar"
+        "date": "2016-05-16",
+        "gift": "Designer Dress",
+        "price": 351800
       }
     ]
   },
   {
     "name": "Cristiano Ronaldo",
-    "phoneNumber": "+48-555-887-5396",
     "bDay": "1985-02-05",
-    "recentContact": 467,
-    "presentHistory": [
-      {
-        "date": "2017-04-19",
-        "gift": "Football Boots"
-      },
-      {
-        "date": "2018-02-10",
-        "gift": "Signed Football"
-      },
-      {
-        "date": "2019-09-03",
-        "gift": "Signed Football"
-      },
-      {
-        "date": "2020-11-04",
-        "gift": "Portugal Jersey"
-      },
-      {
-        "date": "2023-04-09",
-        "gift": "Signed Football"
-      }
-    ]
+    "gender": "Male",
+    "phoneNumber": "+96-555-510-4282",
+    "recentContact": 47,
+    "group": "Coworker",
+    "occasions": [],
+    "presentHistory": []
   },
   {
     "name": "Lionel Messi",
-    "phoneNumber": "+27-555-316-2693",
     "bDay": "1987-06-24",
-    "recentContact": 473,
-    "presentHistory": [
-      {
-        "date": "2023-11-30",
-        "gift": "Soccer Ball"
-      }
-    ]
+    "gender": "Male",
+    "phoneNumber": "+71-555-984-2770",
+    "recentContact": 472,
+    "group": "High School Friend",
+    "occasions": [],
+    "presentHistory": []
   },
   {
     "name": "Barack Obama",
-    "phoneNumber": "+59-555-807-1406",
     "bDay": "1961-08-04",
-    "recentContact": 461,
-    "presentHistory": [
-      {
-        "date": "2016-08-04",
-        "gift": "Inspirational Calendar"
-      },
-      {
-        "date": "2016-09-11",
-        "gift": "Inspirational Calendar"
-      },
-      {
-        "date": "2018-11-08",
-        "gift": "Autobiography Book"
-      },
-      {
-        "date": "2018-12-17",
-        "gift": "Inspirational Calendar"
-      },
-      {
-        "date": "2021-08-19",
-        "gift": "Inspirational Calendar"
-      }
-    ]
+    "gender": "Male",
+    "phoneNumber": "+66-555-258-7063",
+    "recentContact": 474,
+    "group": "Coworker",
+    "occasions": [],
+    "presentHistory": []
   },
   {
     "name": "Oprah Winfrey",
-    "phoneNumber": "+51-555-129-7095",
     "bDay": "1954-01-29",
-    "recentContact": 6,
+    "gender": "Female",
+    "phoneNumber": "+76-555-360-5520",
+    "recentContact": 490,
+    "group": "Coworker",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2017-04-28",
-        "gift": "Inspirational Poster"
+        "date": "2016-03-31",
+        "gift": "Designer Dress",
+        "price": 84100
+      },
+      {
+        "date": "2017-01-14",
+        "gift": "Notebook",
+        "price": 377400
+      },
+      {
+        "date": "2020-08-27",
+        "gift": "Notebook",
+        "price": 277600
+      },
+      {
+        "date": "2020-12-08",
+        "gift": "Luxury Handbag",
+        "price": 355300
+      },
+      {
+        "date": "2022-04-28",
+        "gift": "Custom Sunglasses",
+        "price": 200900
+      },
+      {
+        "date": "2023-12-27",
+        "gift": "Notebook",
+        "price": 240800
       }
     ]
   },
   {
     "name": "Bill Gates",
-    "phoneNumber": "+12-555-499-4790",
     "bDay": "1955-10-28",
-    "recentContact": 490,
+    "gender": "Male",
+    "phoneNumber": "+79-555-750-6911",
+    "recentContact": 489,
+    "group": "High School Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2016-06-21",
-        "gift": "Smartphone"
+        "date": "2015-08-28",
+        "gift": "Luxury Handbag",
+        "price": 287700
       },
       {
-        "date": "2017-09-29",
-        "gift": "Smartphone"
+        "date": "2017-01-12",
+        "gift": "Football Boots",
+        "price": 138200
       },
       {
-        "date": "2021-10-06",
-        "gift": "Book Set"
-      },
-      {
-        "date": "2021-12-06",
-        "gift": "Book Set"
+        "date": "2017-11-13",
+        "gift": "Custom Sunglasses",
+        "price": 98000
       }
     ]
   },
   {
     "name": "Mark Zuckerberg",
-    "phoneNumber": "+3-555-291-6666",
     "bDay": "1984-05-14",
-    "recentContact": 457,
+    "gender": "Male",
+    "phoneNumber": "+1-555-588-4065",
+    "recentContact": 26,
+    "group": "Middle School Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2015-09-14",
-        "gift": "Virtual Reality Headset"
-      },
-      {
-        "date": "2015-10-29",
-        "gift": "Meta Logo Mug"
-      },
-      {
-        "date": "2021-02-23",
-        "gift": "Custom T-shirt"
+        "date": "2015-08-27",
+        "gift": "Football Boots",
+        "price": 311400
       }
     ]
   },
   {
     "name": "Ariana Grande",
-    "phoneNumber": "+73-555-788-9666",
     "bDay": "1993-06-26",
-    "recentContact": 474,
+    "gender": "Female",
+    "phoneNumber": "+31-555-658-9321",
+    "recentContact": 13,
+    "group": "Coworker",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2017-02-18",
-        "gift": "Perfume Set"
+        "date": "2018-07-06",
+        "gift": "Tesla Model",
+        "price": 372100
       },
       {
-        "date": "2018-08-28",
-        "gift": "Stage Costume"
+        "date": "2018-11-29",
+        "gift": "Football Boots",
+        "price": 489200
       },
       {
-        "date": "2021-03-05",
-        "gift": "Stage Costume"
-      },
-      {
-        "date": "2021-11-17",
-        "gift": "Perfume Set"
+        "date": "2019-01-03",
+        "gift": "Luxury Handbag",
+        "price": 13900
       }
     ]
   },
   {
     "name": "Dwayne Johnson",
-    "phoneNumber": "+73-555-783-4094",
     "bDay": "1972-05-02",
-    "recentContact": 17,
+    "gender": "Male",
+    "phoneNumber": "+78-555-838-6058",
+    "recentContact": 48,
+    "group": "High School Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2015-09-05",
-        "gift": "Protein Shaker"
+        "date": "2021-10-17",
+        "gift": "Autobiography Book",
+        "price": 225300
       },
       {
-        "date": "2015-11-05",
-        "gift": "Custom Dumbbells"
-      },
-      {
-        "date": "2019-05-09",
-        "gift": "Action Movie DVD"
-      },
-      {
-        "date": "2022-06-02",
-        "gift": "Protein Shaker"
-      },
-      {
-        "date": "2022-12-18",
-        "gift": "Custom Dumbbells"
+        "date": "2022-05-24",
+        "gift": "Designer Dress",
+        "price": 150300
       }
     ]
   },
   {
     "name": "Joe Biden",
-    "phoneNumber": "+56-555-690-2766",
     "bDay": "1942-11-20",
-    "recentContact": 23,
+    "gender": "Male",
+    "phoneNumber": "+82-555-650-9934",
+    "recentContact": 459,
+    "group": "Middle School Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2016-01-01",
-        "gift": "Commemorative Plaque"
-      },
-      {
-        "date": "2021-03-01",
-        "gift": "American Flag Pin"
+        "date": "2020-06-28",
+        "gift": "Notebook",
+        "price": 141600
       }
     ]
   },
   {
     "name": "Narendra Modi",
-    "phoneNumber": "+34-555-614-4977",
     "bDay": "1950-09-17",
-    "recentContact": 34,
+    "gender": "Male",
+    "phoneNumber": "+72-555-691-1579",
+    "recentContact": 488,
+    "group": "University Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2016-10-14",
-        "gift": "Handcrafted Statue"
+        "date": "2021-06-29",
+        "gift": "Signed Jersey",
+        "price": 242500
       },
       {
-        "date": "2018-06-30",
-        "gift": "Silk Scarf"
-      },
-      {
-        "date": "2020-10-12",
-        "gift": "Silk Scarf"
-      },
-      {
-        "date": "2023-12-02",
-        "gift": "Handcrafted Statue"
+        "date": "2022-08-29",
+        "gift": "Autobiography Book",
+        "price": 492400
       }
     ]
   },
   {
     "name": "Angela Merkel",
-    "phoneNumber": "+87-555-192-6159",
     "bDay": "1954-07-17",
-    "recentContact": 20,
+    "gender": "Female",
+    "phoneNumber": "+45-555-943-9551",
+    "recentContact": 2,
+    "group": "University Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2020-04-25",
-        "gift": "German Porcelain Set"
+        "date": "2016-01-01",
+        "gift": "Signed Jersey",
+        "price": 171100
       },
       {
-        "date": "2022-03-16",
-        "gift": "German Porcelain Set"
+        "date": "2018-11-05",
+        "gift": "Tesla Model",
+        "price": 73600
+      },
+      {
+        "date": "2020-08-10",
+        "gift": "Football Boots",
+        "price": 166400
+      },
+      {
+        "date": "2022-12-10",
+        "gift": "Rocket Model",
+        "price": 349600
+      },
+      {
+        "date": "2023-08-06",
+        "gift": "Autobiography Book",
+        "price": 457000
+      },
+      {
+        "date": "2023-09-01",
+        "gift": "Tesla Model",
+        "price": 330100
       }
     ]
   },
   {
     "name": "Kylie Jenner",
-    "phoneNumber": "+37-555-879-7441",
     "bDay": "1997-08-10",
-    "recentContact": 468,
+    "gender": "Female",
+    "phoneNumber": "+89-555-466-6105",
+    "recentContact": 486,
+    "group": "University Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2015-03-14",
-        "gift": "Makeup Kit"
+        "date": "2016-02-25",
+        "gift": "Notebook",
+        "price": 109100
       },
       {
-        "date": "2019-08-23",
-        "gift": "Diamond Bracelet"
+        "date": "2016-09-03",
+        "gift": "Luxury Handbag",
+        "price": 163100
       },
       {
-        "date": "2020-01-01",
-        "gift": "Diamond Bracelet"
+        "date": "2017-09-25",
+        "gift": "Rocket Model",
+        "price": 95600
       },
       {
-        "date": "2021-10-01",
-        "gift": "Makeup Kit"
+        "date": "2019-01-03",
+        "gift": "Tesla Model",
+        "price": 366700
       },
       {
-        "date": "2023-05-02",
-        "gift": "Makeup Kit"
+        "date": "2023-09-24",
+        "gift": "Designer Dress",
+        "price": 288800
       }
     ]
   },
   {
     "name": "Rihanna",
-    "phoneNumber": "+58-555-225-9073",
     "bDay": "1988-02-20",
-    "recentContact": 5,
+    "gender": "Female",
+    "phoneNumber": "+73-555-655-9619",
+    "recentContact": 464,
+    "group": "High School Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2015-03-30",
-        "gift": "Custom Sunglasses"
-      },
-      {
-        "date": "2015-12-05",
-        "gift": "Fenty Beauty Set"
-      },
-      {
-        "date": "2016-12-25",
-        "gift": "Designer Dress"
-      },
-      {
-        "date": "2017-02-22",
-        "gift": "Designer Dress"
-      },
-      {
-        "date": "2018-12-17",
-        "gift": "Designer Dress"
-      },
-      {
-        "date": "2019-10-06",
-        "gift": "Fenty Beauty Set"
+        "date": "2019-01-11",
+        "gift": "Spider-Man Figure",
+        "price": 34000
       }
     ]
   },
   {
     "name": "Tom Holland",
-    "phoneNumber": "+19-555-686-5513",
     "bDay": "1996-06-01",
-    "recentContact": 465,
+    "gender": "Male",
+    "phoneNumber": "+19-555-837-1119",
+    "recentContact": 497,
+    "group": "Coworker",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2016-03-05",
-        "gift": "Custom Sneakers"
+        "date": "2017-01-06",
+        "gift": "Rocket Model",
+        "price": 100300
       },
       {
-        "date": "2020-07-23",
-        "gift": "Spider-Man Figure"
+        "date": "2018-02-15",
+        "gift": "Notebook",
+        "price": 421300
       },
       {
-        "date": "2021-09-30",
-        "gift": "Signed Comic Book"
+        "date": "2021-03-20",
+        "gift": "Designer Dress",
+        "price": 487900
       },
       {
-        "date": "2023-03-14",
-        "gift": "Signed Comic Book"
+        "date": "2022-03-21",
+        "gift": "Spider-Man Figure",
+        "price": 113500
+      },
+      {
+        "date": "2023-03-28",
+        "gift": "Autobiography Book",
+        "price": 38400
+      },
+      {
+        "date": "2023-08-21",
+        "gift": "Luxury Handbag",
+        "price": 364500
       }
     ]
   },
   {
     "name": "Emma Watson",
-    "phoneNumber": "+3-555-628-4587",
     "bDay": "1990-04-15",
-    "recentContact": 486,
+    "gender": "Female",
+    "phoneNumber": "+44-555-930-2528",
+    "recentContact": 49,
+    "group": "High School Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2016-10-17",
-        "gift": "Custom Bracelet"
+        "date": "2015-06-07",
+        "gift": "Tesla Model",
+        "price": 307000
       },
       {
-        "date": "2022-11-08",
-        "gift": "Signed Book"
+        "date": "2016-08-01",
+        "gift": "Tesla Model",
+        "price": 432400
       },
       {
-        "date": "2022-12-11",
-        "gift": "Signed Book"
+        "date": "2020-08-24",
+        "gift": "Autobiography Book",
+        "price": 42600
+      },
+      {
+        "date": "2021-06-22",
+        "gift": "Signed Jersey",
+        "price": 57000
+      },
+      {
+        "date": "2023-11-08",
+        "gift": "Notebook",
+        "price": 277900
       }
     ]
   },
   {
     "name": "Keanu Reeves",
-    "phoneNumber": "+22-555-589-9588",
     "bDay": "1964-09-02",
-    "recentContact": 478,
-    "presentHistory": []
+    "gender": "Male",
+    "phoneNumber": "+66-555-922-4495",
+    "recentContact": 45,
+    "group": "Middle School Friend",
+    "occasions": [],
+    "presentHistory": [
+      {
+        "date": "2016-08-19",
+        "gift": "Autobiography Book",
+        "price": 129100
+      },
+      {
+        "date": "2017-04-01",
+        "gift": "Signed Jersey",
+        "price": 253800
+      }
+    ]
   },
   {
     "name": "Will Smith",
-    "phoneNumber": "+35-555-405-2150",
     "bDay": "1968-09-25",
-    "recentContact": 479,
+    "gender": "Male",
+    "phoneNumber": "+95-555-171-7412",
+    "recentContact": 458,
+    "group": "Coworker",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2018-01-01",
-        "gift": "Leather Jacket"
-      },
-      {
-        "date": "2018-12-16",
-        "gift": "Comedy Script"
-      },
-      {
-        "date": "2021-02-18",
-        "gift": "Comedy Script"
+        "date": "2019-04-11",
+        "gift": "Designer Dress",
+        "price": 310300
       }
     ]
   },
   {
     "name": "Beyonc\u00e9 Knowles",
-    "phoneNumber": "+97-555-513-3030",
     "bDay": "1981-09-04",
-    "recentContact": 490,
+    "gender": "Female",
+    "phoneNumber": "+54-555-908-8648",
+    "recentContact": 20,
+    "group": "High School Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2020-01-11",
-        "gift": "Concert Tickets"
+        "date": "2016-11-30",
+        "gift": "Rocket Model",
+        "price": 24000
       },
       {
-        "date": "2020-04-03",
-        "gift": "Custom Mic Stand"
+        "date": "2017-10-16",
+        "gift": "Luxury Handbag",
+        "price": 198100
+      },
+      {
+        "date": "2019-10-16",
+        "gift": "Custom Sunglasses",
+        "price": 221500
+      },
+      {
+        "date": "2021-03-25",
+        "gift": "Signed Jersey",
+        "price": 308800
+      },
+      {
+        "date": "2022-04-18",
+        "gift": "Spider-Man Figure",
+        "price": 183500
+      },
+      {
+        "date": "2023-10-11",
+        "gift": "Signed Jersey",
+        "price": 475700
       }
     ]
   },
   {
     "name": "Chris Hemsworth",
-    "phoneNumber": "+13-555-352-8451",
     "bDay": "1983-08-11",
-    "recentContact": 478,
+    "gender": "Male",
+    "phoneNumber": "+53-555-268-4770",
+    "recentContact": 473,
+    "group": "Middle School Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2018-05-26",
-        "gift": "Thor Hammer Replica"
+        "date": "2015-12-19",
+        "gift": "Spider-Man Figure",
+        "price": 159800
       },
       {
-        "date": "2020-06-17",
-        "gift": "Workout Gear"
+        "date": "2018-03-28",
+        "gift": "Spider-Man Figure",
+        "price": 310700
+      },
+      {
+        "date": "2020-06-02",
+        "gift": "Tesla Model",
+        "price": 428500
       }
     ]
   },
   {
     "name": "Shah Rukh Khan",
-    "phoneNumber": "+20-555-343-3873",
     "bDay": "1965-11-02",
-    "recentContact": 9,
+    "gender": "Male",
+    "phoneNumber": "+49-555-324-6872",
+    "recentContact": 484,
+    "group": "Middle School Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2019-09-01",
-        "gift": "Bollywood Memorabilia"
+        "date": "2019-12-09",
+        "gift": "Spider-Man Figure",
+        "price": 141100
       },
       {
-        "date": "2021-08-15",
-        "gift": "Signed Photo"
+        "date": "2022-03-02",
+        "gift": "Designer Dress",
+        "price": 207500
       }
     ]
   },
   {
     "name": "Adele",
-    "phoneNumber": "+55-555-954-5876",
     "bDay": "1988-05-05",
-    "recentContact": 7,
+    "gender": "Female",
+    "phoneNumber": "+68-555-915-3731",
+    "recentContact": 473,
+    "group": "High School Friend",
+    "occasions": [],
     "presentHistory": []
   },
   {
     "name": "Justin Bieber",
-    "phoneNumber": "+3-555-502-6597",
     "bDay": "1994-03-01",
-    "recentContact": 30,
-    "presentHistory": [
-      {
-        "date": "2017-10-11",
-        "gift": "Pop Song Collection"
-      },
-      {
-        "date": "2019-07-04",
-        "gift": "Pop Song Collection"
-      },
-      {
-        "date": "2021-06-29",
-        "gift": "Custom Guitar"
-      }
-    ]
+    "gender": "Male",
+    "phoneNumber": "+6-555-233-8291",
+    "recentContact": 482,
+    "group": "Coworker",
+    "occasions": [],
+    "presentHistory": []
   },
   {
     "name": "Lady Gaga",
-    "phoneNumber": "+18-555-836-1929",
     "bDay": "1986-03-28",
-    "recentContact": 479,
+    "gender": "Female",
+    "phoneNumber": "+96-555-841-8205",
+    "recentContact": 488,
+    "group": "University Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2017-10-07",
-        "gift": "Stage Outfit"
+        "date": "2016-01-08",
+        "gift": "Signed Jersey",
+        "price": 46800
       },
       {
-        "date": "2018-01-27",
-        "gift": "Inspirational Jewelry"
+        "date": "2017-01-11",
+        "gift": "Custom Sunglasses",
+        "price": 168000
       },
       {
-        "date": "2019-09-23",
-        "gift": "Stage Outfit"
+        "date": "2017-06-30",
+        "gift": "Signed Jersey",
+        "price": 425400
       },
       {
-        "date": "2023-02-19",
-        "gift": "Stage Outfit"
+        "date": "2018-03-22",
+        "gift": "Notebook",
+        "price": 45300
+      },
+      {
+        "date": "2018-06-04",
+        "gift": "Autobiography Book",
+        "price": 37400
+      },
+      {
+        "date": "2020-01-05",
+        "gift": "Spider-Man Figure",
+        "price": 418000
       }
     ]
   },
   {
     "name": "Ed Sheeran",
-    "phoneNumber": "+56-555-510-2051",
     "bDay": "1991-02-17",
-    "recentContact": 472,
-    "presentHistory": []
+    "gender": "Male",
+    "phoneNumber": "+80-555-453-9285",
+    "recentContact": 452,
+    "group": "High School Friend",
+    "occasions": [],
+    "presentHistory": [
+      {
+        "date": "2017-10-13",
+        "gift": "Rocket Model",
+        "price": 29200
+      },
+      {
+        "date": "2020-02-07",
+        "gift": "Football Boots",
+        "price": 146500
+      }
+    ]
   },
   {
     "name": "Selena Gomez",
-    "phoneNumber": "+49-555-894-9067",
     "bDay": "1992-07-22",
-    "recentContact": 470,
+    "gender": "Female",
+    "phoneNumber": "+97-555-415-5341",
+    "recentContact": 21,
+    "group": "Middle School Friend",
+    "occasions": [],
     "presentHistory": [
       {
-        "date": "2016-01-05",
-        "gift": "Makeup Kit"
+        "date": "2019-06-19",
+        "gift": "Custom Sunglasses",
+        "price": 235200
       },
       {
-        "date": "2016-12-19",
-        "gift": "Makeup Kit"
-      },
-      {
-        "date": "2018-02-08",
-        "gift": "Perfume Set"
+        "date": "2021-05-12",
+        "gift": "Football Boots",
+        "price": 92200
       }
     ]
   },
   {
-    "name": "Keanu Reeves",
-    "phoneNumber": "+89-555-355-3246",
-    "bDay": "1964-09-02",
-    "recentContact": 478,
+    "name": "Father",
+    "bDay": "1965-01-15",
+    "gender": "Male",
+    "phoneNumber": "+19-555-568-8609",
+    "recentContact": 492,
+    "group": "Family",
+    "occasions": [
+      {
+        "occasion": "Wedding Anniversary",
+        "date": "2025-11-11"
+      },
+      {
+        "occasion": "Parents' Day",
+        "date": "2025-05-05"
+      }
+    ],
     "presentHistory": [
       {
-        "date": "2015-07-30",
-        "gift": "Action Movie Poster"
+        "date": "2019-07-25",
+        "gift": "Premium Backpack",
+        "price": 70100
       },
       {
-        "date": "2016-07-03",
-        "gift": "Motorcycle Helmet"
+        "date": "2020-05-19",
+        "gift": "Luxury Pen Set",
+        "price": 96600
       },
       {
-        "date": "2017-01-08",
-        "gift": "Action Movie Poster"
+        "date": "2021-03-20",
+        "gift": "Smartwatch",
+        "price": 74600
       },
       {
-        "date": "2023-09-20",
-        "gift": "Action Movie Poster"
+        "date": "2022-11-26",
+        "gift": "Leisure Activity Voucher",
+        "price": 76400
       }
     ]
   },
   {
-    "name": "Will Smith",
-    "phoneNumber": "+1-555-893-5077",
-    "bDay": "1968-09-25",
-    "recentContact": 461,
+    "name": "Mother",
+    "bDay": "1968-05-25",
+    "gender": "Female",
+    "phoneNumber": "+42-555-197-9298",
+    "recentContact": 455,
+    "group": "Family",
+    "occasions": [
+      {
+        "occasion": "Wedding Anniversary",
+        "date": "2025-11-11"
+      },
+      {
+        "occasion": "Parents' Day",
+        "date": "2025-05-05"
+      }
+    ],
     "presentHistory": [
       {
-        "date": "2022-07-29",
-        "gift": "Movie Collectible"
+        "date": "2020-03-09",
+        "gift": "Book with a Handwritten Letter",
+        "price": 1300
+      },
+      {
+        "date": "2021-02-02",
+        "gift": "DIY Handmade Item",
+        "price": 91100
+      },
+      {
+        "date": "2022-03-10",
+        "gift": "Premium Chocolate Set",
+        "price": 86700
+      },
+      {
+        "date": "2023-08-02",
+        "gift": "Scarf",
+        "price": 17400
+      },
+      {
+        "date": "2024-08-09",
+        "gift": "Vitamin Set",
+        "price": 23100
+      }
+    ]
+  },
+  {
+    "name": "Sibling",
+    "bDay": "1998-09-10",
+    "gender": "Male",
+    "phoneNumber": "+99-555-636-7990",
+    "recentContact": 18,
+    "group": "Family",
+    "occasions": [
+    ],
+    "presentHistory": [
+      {
+        "date": "2023-09-29",
+        "gift": "Custom T-Shirt",
+        "price": 52000
+      },
+      {
+        "date": "2024-09-29",
+        "gift": "Portable Wireless Charger",
+        "price": 20000
+      }
+    ]
+  },
+  {
+    "name": "Partner",
+    "bDay": "1995-03-12",
+    "gender": "Female",
+    "phoneNumber": "+61-555-107-8020",
+    "recentContact": 489,
+    "group": "Partner",
+    "occasions": [
+      {
+        "occasion": "100 Days",
+        "date": "2025-04-07"
+      },
+      {
+        "occasion": "1 Year Anniversary",
+        "date": "2025-12-28"
+      }
+    ],
+    "presentHistory": [
+      {
+        "date": "2024-05-31",
+        "gift": "Romantic Dinner Coupon",
+        "price": 205800
+      },
+      {
+        "date": "2024-10-23",
+        "gift": "Luxury Perfume",
+        "price": 298600
+      }
+    ]
+  },
+  {
+    "name": "Ex-Partner",
+    "bDay": "1993-07-22",
+    "gender": "Female",
+    "phoneNumber": "+30-555-269-6370",
+    "recentContact": 3,
+    "group": "Ex-Partner",
+    "occasions": [],
+    "presentHistory": [
+      {
+        "date": "2020-04-20",
+        "gift": "Framed Art",
+        "price": 138800
+      },
+      {
+        "date": "2020-07-04",
+        "gift": "Customized Jewelry",
+        "price": 132500
+      },
+      {
+        "date": "2021-01-17",
+        "gift": "Gift Card",
+        "price": 92600
+      },
+      {
+        "date": "2021-11-22",
+        "gift": "Framed Art",
+        "price": 57200
+      },
+      {
+        "date": "2023-06-08",
+        "gift": "Gift Card",
+        "price": 44100
+      },
+      {
+        "date": "2023-06-12",
+        "gift": "Personalized Mug",
+        "price": 19600
+      },
+      {
+        "date": "2023-06-30",
+        "gift": "Framed Art",
+        "price": 60600
       }
     ]
   }
