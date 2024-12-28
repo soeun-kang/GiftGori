@@ -22,7 +22,7 @@ class GalleryViewModel : ViewModel() {
     fun loadPersonData(context: Context) {
         try {
             val giftList = loadGiftData(context)
-            val manageJson = ManageJson(context, "famous_people_data_relevant_gifts.json")
+            val manageJson = ManageJson(context, "contacts.json")
             val contacts = manageJson.dataList
             _personData.value = contacts.map { parsePersonDetails(it, giftList) }
         } catch (e: Exception) {
@@ -79,7 +79,7 @@ class GalleryViewModel : ViewModel() {
     fun loadGiftData(context: Context): List<GiftItem> {
         val giftList = mutableListOf<GiftItem>()
         try {
-            val jsonString = context.assets.open("gifts_with_recommendations.json").bufferedReader().use { it.readText() }
+            val jsonString = context.assets.open("gifts.json").bufferedReader().use { it.readText() }
             val jsonArray = JSONArray(jsonString)
             for (i in 0 until jsonArray.length()) {
                 val jsonObject = jsonArray.getJSONObject(i)
