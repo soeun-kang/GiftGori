@@ -8,12 +8,15 @@ import android.widget.PopupWindow
 import android.widget.TextView
 import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
+import android.widget.Button
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tabs.R
 import com.example.tabs.databinding.FragmentContactsBinding
+import com.example.tabs.ui.contacts.popup.PresentHistoryAdapter
 import com.example.tabs.utils.models.Contact
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -108,5 +111,21 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             0,
             0
         )
+
+        // 팝업 중 선물 목록 클릭 시
+        val presentHistoryButton = popupView.findViewById<Button>(R.id.buttonPresentHistory)
+        val presentHistoryLayout = popupView.findViewById<LinearLayout>(R.id.presentHistoryLayout)
+        presentHistoryButton.setOnClickListener {
+            println("Clicked presentHistoryLayout")
+            val isVisible = presentHistoryLayout.visibility == View.VISIBLE
+            presentHistoryLayout.visibility = if (isVisible) View.GONE else View.VISIBLE
+            if(!isVisible){
+                // recyclerView 값 넣기
+                val recyclerView = popupView.findViewById<RecyclerView>(R.id.recyclerViewPresentHistory)
+                recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                recyclerView.adapter = PresentHistoryAdapter(contact.presentHistory)
+
+            }
+        }
     }
 }
