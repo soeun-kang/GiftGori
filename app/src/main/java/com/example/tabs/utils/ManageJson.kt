@@ -1,6 +1,8 @@
 package com.example.tabs.utils
 
 import android.content.Context
+import com.example.tabs.utils.models.Contact
+import com.example.tabs.utils.models.PresentHistory
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
@@ -9,19 +11,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.text.ParseException
-
-data class PresentHistory(
-    val date: Date,
-    val gift: String
-)
-
-data class Contact(
-    val name: String,
-    val phoneNumber: String,
-    val bDay: Date,
-    val recentContact: Int,
-    val presentHistory: List<PresentHistory>
-)
 
 class ManageJson(private val context: Context, fileName: String) {
 

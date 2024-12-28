@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Tabs</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_contacts">Contacts</string>
     <string name="title_gallery">Gallery</string>
     <string name="image_description">Gallery image</string>
 </resources>

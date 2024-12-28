@@ -19,15 +19,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val REQUEST_CODE_STORAGE_PERMISSION = 100
 
+    // 생성되면 실행
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // activity_main.xml을 가져와 여기서 바인딩
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(binding.root)    // 화면 전체의 UI 설정: 파일의 최상위 뷰를 나타냄
 
+        // activity_main.xml에 정의된 BottomNavigationView를 찾아서 navView 변수에 할당
         val navView: BottomNavigationView = binding.navView
 
+        // activity_main.xml에 정의된 nav_host_fragment_activity_main 뷰를 찾아서
+        // 해당 뷰와 연결된 NavController를 가져옵니다
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_gallery
