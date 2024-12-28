@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Smart Speaker",
+    "image_path": "smart_speaker",
+    "price": "$42.00",
+    "recommendation": ["Elon Musk", "Taylor Swift"]
+  },
+  {
+    "name": "Fitness Tracker",
+    "image_path": "fitness_tracker",
+    "price": "$75.00",
+    "recommendation": ["Cristiano Ronaldo", "Lionel Messi", "Elon Musk"]
+  },
+  {
+    "name": "Wireless Earbuds",
+    "image_path": "wireless_earbuds",
+    "price": "$60.00",
+    "recommendation": ["Jeff Bezos", "Oprah Winfrey", "Elon Musk"]
+  },
+  {
+    "name": "Luxury Pen",
+    "image_path": "luxury_pen",
+    "price": "$95.00",
+    "recommendation": ["Bill Gates", "Barack Obama"]
+  }
+]
