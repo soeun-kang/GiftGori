@@ -117,14 +117,14 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonDisabled"
+                android:id="@+id/buttonAssign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/white"
                 android:strokeColor="@color/black"
 
-                android:text="Enabled"
+                android:text="Assign"
                 android:textColor="@color/black" />
 
             <Button

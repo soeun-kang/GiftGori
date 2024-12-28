@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tabs.R
 import com.example.tabs.databinding.FragmentContactsBinding
 import com.example.tabs.ui.contacts.popup.PresentHistoryAdapter
+import com.example.tabs.utils.models.Assigned
 import com.example.tabs.utils.models.Contact
+import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -30,6 +32,8 @@ class ContactsFragment : Fragment(), OnItemClickListener {
     private lateinit var viewModel: ContactsViewModel
     private lateinit var adapter: ContactsAdapter
     private var popupWindow: PopupWindow? = null
+
+    private var _assignedList: List<Assigned> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +61,20 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             adapter = ContactsAdapter(contacts, this)
             binding.recyclerView.adapter = adapter
         }
+        // assignedList 관찰
+        viewModel.assignedList.observe(viewLifecycleOwner) { assignedList ->
+            // 값이 바뀌었을 때 작동
+            _assignedList = assignedList.map {
+                assigned ->  assigned.copy(occasions = assigned.occasions.map { it.copy() })
+            }
+        }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadContacts()
+        viewModel.loadAssigned()
     }
 
     override fun onDestroyView() {
@@ -73,7 +90,6 @@ class ContactsFragment : Fragment(), OnItemClickListener {
     }
 
     private fun showContactPopup(contact: Contact) {
-        println("Clicked item: $contact")
         val popupView = layoutInflater.inflate(R.layout.popup_contact_detail, null)
 
         val popupInitial = popupView.findViewById<TextView>(R.id.popupInitial)
@@ -81,10 +97,19 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         val popupBirthday = popupView.findViewById<TextView>(R.id.popupBirthday)
         val popupPhoneNumber = popupView.findViewById<TextView>(R.id.popupPhoneNumber)
         val popupRecentContact = popupView.findViewById<TextView>(R.id.popupRecentContact)
+        // 버튼 텍스트 설정
+        val assignButton = popupView.findViewById<Button>(R.id.buttonAssign)
+        val isAssigned: Boolean = (_assignedList.any { it.name == contact.name })
+        // 이 사람은 이미 기념일을 챙김
+        if(isAssigned) {
+            assignButton.text = "Unassign"
+        }
+        else{
+            assignButton.text = "Assign"
+        }
 
         popupInitial.text = ""+contact.name[0]
         popupName.text = contact.name
-        println(popupName.text)
         val bDayFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         popupBirthday.text = bDayFormatter.format(contact.bDay)
         popupPhoneNumber.text = "Tel: " + contact.phoneNumber
@@ -116,7 +141,6 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         val presentHistoryButton = popupView.findViewById<Button>(R.id.buttonPresentHistory)
         val presentHistoryLayout = popupView.findViewById<LinearLayout>(R.id.presentHistoryLayout)
         presentHistoryButton.setOnClickListener {
-            println("Clicked presentHistoryLayout")
             val isVisible = presentHistoryLayout.visibility == View.VISIBLE
             presentHistoryLayout.visibility = if (isVisible) View.GONE else View.VISIBLE
             if(!isVisible){
@@ -127,5 +151,25 @@ class ContactsFragment : Fragment(), OnItemClickListener {
 
             }
         }
+
+
+//        assignButton.setOnClickListener {
+//            val gson = Gson()
+//            if(isAssigned){
+//                assignButton.text = "Unassign"
+//                // remove name from occasion.json
+//                _assignedList = _assignedList.filter { it.name != contact.name }
+//                val json = gson.toJson(_assignedList)
+//                // write to occasion.json in asset
+//                requireContext().openFileOutput("occasion.json", this.applicationContext.MODE_PRIVATE).use {
+//                    it.write(json.toByteArray())
+//                }
+//            }else{
+//                assignButton.text = "Assign"
+//                // add name to occasion.json
+//            }
+//        }
+
+
     }
 }

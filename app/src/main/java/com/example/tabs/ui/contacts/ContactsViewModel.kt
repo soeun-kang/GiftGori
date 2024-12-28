@@ -4,24 +4,35 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.tabs.utils.ManageJson
+import com.example.tabs.utils.models.Assigned
 import com.example.tabs.utils.models.Contact
 
 
 class ContactsViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val context = application.applicationContext
-
-    val manageJson = ManageJson(context, "contacts.json")
+    private val manageJson = ManageJson(application.applicationContext)
 
     private val _contactList = MutableLiveData<List<Contact>>()
     val contactList: MutableLiveData<List<Contact>>
         get() = _contactList
 
+    private val _assignedList = MutableLiveData<List<Assigned>>()
+    val assignedList: MutableLiveData<List<Assigned>>
+        get() = _assignedList
+
     init {
         loadContacts()
+        loadAssigned()
     }
 
     fun loadContacts() {
-        _contactList.value = manageJson.dataList
+        val jsonString = manageJson.readFileFromInternalStorage("contacts.json")
+        _contactList.value = manageJson.parseJsonToDataList(jsonString)
     }
+
+    fun loadAssigned() {
+        val jsonString = manageJson.readFileFromInternalStorage("occasion.json")
+        _assignedList.value = manageJson.parseJsonToAssignedList(jsonString)
+    }
+
 }
