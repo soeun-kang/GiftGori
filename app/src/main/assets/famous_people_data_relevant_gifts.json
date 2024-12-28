@@ -16,18 +16,6 @@
         ]
     },
     {
-        "name": "Jeff Bezos",
-        "phoneNumber": "+56-555-926-7662",
-        "bDay": "1964-01-12",
-        "recentContact": 459,
-        "presentHistory": [
-            {
-                "date": "2021-12-20",
-                "gift": "Space-themed Watch"
-            }
-        ]
-    },
-    {
         "name": "Taylor Swift",
         "phoneNumber": "+22-555-419-6525",
         "bDay": "1989-12-13",
@@ -148,78 +136,6 @@
             {
                 "date": "2021-12-06",
                 "gift": "Book Set"
-            }
-        ]
-    },
-    {
-        "name": "Mark Zuckerberg",
-        "phoneNumber": "+3-555-291-6666",
-        "bDay": "1984-05-14",
-        "recentContact": 457,
-        "presentHistory": [
-            {
-                "date": "2015-09-14",
-                "gift": "Virtual Reality Headset"
-            },
-            {
-                "date": "2015-10-29",
-                "gift": "Meta Logo Mug"
-            },
-            {
-                "date": "2021-02-23",
-                "gift": "Custom T-shirt"
-            }
-        ]
-    },
-    {
-        "name": "Ariana Grande",
-        "phoneNumber": "+73-555-788-9666",
-        "bDay": "1993-06-26",
-        "recentContact": 474,
-        "presentHistory": [
-            {
-                "date": "2017-02-18",
-                "gift": "Perfume Set"
-            },
-            {
-                "date": "2018-08-28",
-                "gift": "Stage Costume"
-            },
-            {
-                "date": "2021-03-05",
-                "gift": "Stage Costume"
-            },
-            {
-                "date": "2021-11-17",
-                "gift": "Perfume Set"
-            }
-        ]
-    },
-    {
-        "name": "Dwayne Johnson",
-        "phoneNumber": "+73-555-783-4094",
-        "bDay": "1972-05-02",
-        "recentContact": 17,
-        "presentHistory": [
-            {
-                "date": "2015-09-05",
-                "gift": "Protein Shaker"
-            },
-            {
-                "date": "2015-11-05",
-                "gift": "Custom Dumbbells"
-            },
-            {
-                "date": "2019-05-09",
-                "gift": "Action Movie DVD"
-            },
-            {
-                "date": "2022-06-02",
-                "gift": "Protein Shaker"
-            },
-            {
-                "date": "2022-12-18",
-                "gift": "Custom Dumbbells"
             }
         ]
     }
