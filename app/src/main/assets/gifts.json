@@ -2,25 +2,57 @@
   {
     "name": "Smart Speaker",
     "image_path": "smart_speaker",
-    "price": "$42.00",
-    "recommendation": ["Elon Musk", "Taylor Swift"]
+    "price": 1445300,
+    "recommendation": ["Elon Musk", "Taylor Swift"],
+    "tag": ["technology", "gadgets", "Male", "Female"],
+    "age_range": [25, 35]
   },
   {
     "name": "Fitness Tracker",
     "image_path": "fitness_tracker",
-    "price": "$75.00",
-    "recommendation": ["Cristiano Ronaldo", "Lionel Messi", "Elon Musk"]
+    "price": 42900,
+    "recommendation": ["Cristiano Ronaldo", "Lionel Messi", "Elon Musk"],
+    "tag": ["fitness", "wearables", "Male"],
+    "age_range": [25, 45]
   },
   {
-    "name": "Wireless Earbuds",
-    "image_path": "wireless_earbuds",
-    "price": "$60.00",
-    "recommendation": ["Jeff Bezos", "Oprah Winfrey", "Elon Musk"]
+    "name": "블루투스 이어폰",
+    "image_path": "bluetooth_earphone",
+    "price": 24900,
+    "recommendation": ["Jeff Bezos", "Oprah Winfrey", "Elon Musk"],
+    "tag": ["audio", "gadgets", "Male", "Female"],
+    "age_range": [25, 40]
   },
   {
     "name": "Luxury Pen",
     "image_path": "luxury_pen",
-    "price": "$95.00",
-    "recommendation": ["Bill Gates", "Barack Obama"]
+    "price": 49500,
+    "recommendation": ["Bill Gates", "Barack Obama", "Jeff Bezos"],
+    "tag": ["luxury", "stationery", "Male"],
+    "age_range": [45, 60]
+  },
+  {
+    "name": "에어팟 맥스",
+    "image_path": "airpodmax",
+    "price": 745000,
+    "recommendation": ["Bill Gates", "Barack Obama", "Elon Musk"],
+    "tag": ["audio", "gadgets", "Female"],
+    "age_range": [35, 50]
+  },
+  {
+    "name": "애플워치",
+    "image_path": "applewatch",
+    "price": 350000,
+    "recommendation": ["Bill Gates", "Barack Obama", "Elon Musk"],
+    "tag": ["fitness", "gadgets", "Male", "Female"],
+    "age_range": [25, 40]
+  },
+  {
+    "name": "아이폰",
+    "image_path": "iphone",
+    "price": 1400000,
+    "recommendation": ["Bill Gates", "Barack Obama", "Elon Musk"],
+    "tag": ["technology", "gadgets", "Male", "Female"],
+    "age_range": [25, 45]
   }
 ]

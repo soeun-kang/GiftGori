@@ -4,5 +4,6 @@ import java.util.Date
 
 data class PresentHistory(
     val date: Date,
-    val gift: String
+    val gift: String,
+    val price: Int
 )
