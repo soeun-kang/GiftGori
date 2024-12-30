@@ -22,8 +22,9 @@ class GalleryViewModel : ViewModel() {
     fun loadPersonData(context: Context) {
         try {
             val giftList = loadGiftData(context)
-            val manageJson = ManageJson(context, "contacts.json")
-            val contacts = manageJson.dataList
+            val manageJson = ManageJson(context)
+            val jsonString = manageJson.readFileFromInternalStorage("contacts.json")
+            val contacts = manageJson.parseJsonToDataList(jsonString)
             _personData.value = contacts.map { parsePersonDetails(it, giftList) }
         } catch (e: Exception) {
             e.printStackTrace()

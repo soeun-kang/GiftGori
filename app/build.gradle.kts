@@ -71,4 +71,5 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.9.0") // 최신 버전 사용
     // Compose를 Lifecycle과 함께 사용해야 하는 경우
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0") // 최신 버전 사용
+    implementation("com.applandeo:material-calendar-view:1.9.0-rc03")
 }

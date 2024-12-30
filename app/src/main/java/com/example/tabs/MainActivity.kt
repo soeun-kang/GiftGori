@@ -14,6 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.tabs.databinding.ActivityMainBinding
+import com.example.tabs.utils.ManageJson
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_contacts, R.id.navigation_gallery
+                R.id.navigation_calendar, R.id.navigation_contacts, R.id.navigation_gallery
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -65,6 +66,19 @@ class MainActivity : AppCompatActivity() {
         }
         // 외부 저장소 접근 권한 요청
         requestStoragePermission()
+        writeToInternalStorage()
+    }
+
+    private fun writeToInternalStorage() {
+        val manageJson = ManageJson(this)
+        val jsonString = manageJson.getJsonDataFromAsset("contacts.json")
+        if (jsonString != null) {
+            manageJson.writeFileToInternalStorage("contacts.json", jsonString)
+        }
+        val jsonString2 = manageJson.getJsonDataFromAsset("occasion.json")
+        if (jsonString2 != null) {
+            manageJson.writeFileToInternalStorage("occasion.json", jsonString2)
+        }
     }
     // 검색 기능
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
