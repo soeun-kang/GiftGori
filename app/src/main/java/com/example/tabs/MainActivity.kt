@@ -66,20 +66,7 @@ class MainActivity : AppCompatActivity() {
         // 외부 저장소 접근 권한 요청
         requestStoragePermission()
     }
-    // 검색 기능
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_search -> {
-                // 검색 기능 실행
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
+
 
 
     private fun requestStoragePermission() {
