@@ -34,41 +34,29 @@ class GalleryFragment : Fragment() {
         // 데이터 관찰 및 View 업데이트
         galleryViewModel.personData.observe(viewLifecycleOwner) { personDetailsList ->
             if (personDetailsList.isNotEmpty()) {
-                // ViewPager2 어댑터에 데이터 전달
                 galleryAdapter.updateData(personDetailsList)
 
-                // TabLayoutMediator로 탭과 ViewPager 연결
+                // 탭과 ViewPager 연결
                 TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
                     tab.text = personDetailsList[position].name
                 }.attach()
+
+                // Set initial tab if contactIndex is provided
+                val contactIndex = arguments?.getInt("contactIndex", 0) ?: 0
+                binding.viewPager.setCurrentItem(contactIndex, false)
             }
         }
-        /*
-        galleryViewModel.giftData.observe(viewLifecycleOwner) { giftList ->
-            val recyclerView = binding.recommendedGiftsRecyclerView
-            recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-            //recyclerView.adapter = RecommendedGiftsAdapter(requireContext(), giftList)
-
-            // 수동으로 샘플 데이터 설정 test
-            val testGifts = listOf(
-                GiftItem(
-                    name = "테스트 선물",
-                    imagePath = "smart_speaker", // 테스트용 샘플 이미지
-                    price = "$100.00",
-                    recommendation = listOf("Test")
-                )
-            )
-            recyclerView.adapter = RecommendedGiftsAdapter(requireContext(), testGifts)
-
-        }
-
-        // Load gift data in ViewModel
-        galleryViewModel.loadGifts(requireContext())*/
 
         // ViewModel에서 데이터 로드
         galleryViewModel.loadPersonData(requireContext())
 
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val contactIndex = arguments?.getInt("contactIndex", 0) ?: 0
+        binding.viewPager.setCurrentItem(contactIndex, false)
     }
 
     override fun onDestroyView() {
