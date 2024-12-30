@@ -10,11 +10,13 @@ import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.Gravity
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -148,6 +150,18 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             0
         )
 
+        // 수정버튼 클릭 시
+        val editButton = popupView.findViewById<ImageButton>(R.id.editButton)
+        editButton.setOnClickListener {
+            println("Clicked edit button")
+            // 현재 contact bundle로 전송
+            val bundle = Bundle()
+            bundle.putSerializable("contact", contact)
+            popupWindow?.dismiss()
+            findNavController().navigate(R.id.contact_to_edit, bundle)
+            popupWindow?.dismiss()
+        }
+
         // 팝업 중 선물 목록 클릭 시
         val presentHistoryButton = popupView.findViewById<Button>(R.id.buttonPresentHistory)
         val presentHistoryLayout = popupView.findViewById<LinearLayout>(R.id.presentHistoryLayout)
@@ -164,7 +178,7 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             }
         }
 
-
+        // 선물 챙기기 등록 버튼
         assignButton.setOnClickListener {
             val gson = Gson()
             if(isAssigned){

@@ -76,6 +76,18 @@
                 android:padding="0dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_edit_pen" />
+            <ImageButton
+                android:id="@+id/buttonDelete"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/delete_button"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_delete" />
         </LinearLayout>
 
         <TextView

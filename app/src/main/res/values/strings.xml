@@ -7,4 +7,23 @@
     <string name="occasion_assign_success">등록 성공!!</string>
     <string name="occasion_dismiss_success">삭제 성공!!</string>
     <string name="search">Search</string>
+    <!-- Edit Contact Fragment -->
+    <string name="edit_name">이름 수정</string>
+    <string name="name_hint">이름을 입력하세요</string>
+    <string name="edit_birthday">생일 수정</string>
+    <string name="birthday_hint">생일을 선택하세요</string>
+    <string name="edit_phone_number">전화번호 수정</string>
+    <string name="phone_number_hint">전화번호를 입력하세요</string>
+    <string name="present_history">선물 주고받은 기억들</string>
+    <string name="delete_button">삭제 버튼</string>
+    <string name="cancel">취소</string>
+    <string name="apply">완료</string>
+    <string name="present_history_button">선물 주고받은 기억들 버튼</string>
+    <string name="cancel_button">취소 버튼</string>
+    <string name="apply_button">완료 버튼</string>
+    <string name="gender">성별</string>
+    <string name="male">남</string>
+    <string name="female">여</string>
+    <string name="relationship">관계</string>
+    <string name="select_relationship">관계를 선택하세요</string>
 </resources>

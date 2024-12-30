@@ -16,7 +16,11 @@
         android:name="com.example.tabs.ui.contacts.ContactsFragment"
         android:label="@string/title_contacts"
         tools:layout="@layout/fragment_contacts"
-        app:popUpToInclusive="true"/>
+        app:popUpToInclusive="true">
+        <action
+            android:id="@+id/contact_to_edit"
+            app:destination="@id/navigation_edit_contact" />
+    </fragment>
 
 
     <fragment
@@ -28,5 +32,15 @@
             android:name="contactIndex"
             android:defaultValue="0"
             app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_edit_contact"
+        android:name="com.example.tabs.ui.contacts.edit.EditFragment"
+        android:label="Edit"
+        tools:layout="@layout/fragment_edit">
+        <action
+            android:id="@+id/edit_to_contact"
+            app:destination="@id/navigation_contacts" />
     </fragment>
 </navigation>
