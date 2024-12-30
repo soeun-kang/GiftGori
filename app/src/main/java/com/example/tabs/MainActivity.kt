@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
         // Navigation Bar 클릭 동작 명시적으로 처리
         navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.navigation_home -> {
-                    navController.navigate(R.id.navigation_home)
+                R.id.navigation_calendar -> {
+                    navController.navigate(R.id.navigation_calendar)
                     true
                 }
                 R.id.navigation_contacts -> { // Contacts로 이동 시 항상 새로 생성

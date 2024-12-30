@@ -28,7 +28,6 @@ import com.example.tabs.utils.models.Contact
 import com.example.tabs.utils.models.Occasion
 import com.google.gson.Gson
 import com.example.tabs.ui.gallery.GalleryFragment
-import com.example.tabs.utils.models.Contact
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import java.text.SimpleDateFormat
@@ -86,6 +85,7 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         super.onResume()
         viewModel.loadContacts()
         viewModel.loadAssigned()
+        binding.recyclerView.scrollToPosition(0)
     }
 
     override fun onDestroyView() {
@@ -219,11 +219,6 @@ class ContactsFragment : Fragment(), OnItemClickListener {
                 println("Contact not found in Contactlist")
             }
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        binding.recyclerView.scrollToPosition(0)
     }
 
 }
