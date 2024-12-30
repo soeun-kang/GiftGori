@@ -112,9 +112,16 @@ class ManageJson(private val context: Context) {
             val res = formatter.parse(dateString)
             res ?: throw ParseException("Invalid date format", 0)
         } catch (e: ParseException) {
-            println("Error parsing date string: $dateString")
-            e.printStackTrace()
-            Date()
+            try {
+                val formatter2 = SimpleDateFormat("MMM dd, yyyy hh:mm:ss a", Locale.ENGLISH)
+                formatter2.isLenient = false // 엄격한 모드 설정
+                return formatter2.parse(dateString) ?: throw ParseException("Invalid date format", 0)
+            }
+            catch (e: ParseException) {
+                throw ParseException("Invalid date format", 0)
+                e.printStackTrace()
+                Date()
+            }
         }
     }
 
