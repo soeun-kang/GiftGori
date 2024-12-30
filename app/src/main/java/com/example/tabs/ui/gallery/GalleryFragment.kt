@@ -82,7 +82,7 @@ class GalleryFragment : Fragment() {
     private fun setupMenuProvider() {
         requireActivity().addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                Log.d(TAG, "onCreateMenu 호출")
+                Log.d(TAG, "onCreateMenu 호출") //여기에서 오래 걸리는 것 같음! 이전에는 viewpager가 안뜸ㅎ
                 menu.clear()
                 menuInflater.inflate(R.menu.menu_main, menu)
 
@@ -127,8 +127,12 @@ class GalleryFragment : Fragment() {
                 return
             }
 
-            val filteredList = personDetailsList.filter { personDetails ->
-                personDetails.name.contains(query, ignoreCase = true)
+            val filteredList = if (query.isBlank()) {
+                personDetailsList // 검색어가 공란이면 전체 데이터를 사용
+            } else {
+                personDetailsList.filter { personDetails ->
+                    personDetails.name.contains(query, ignoreCase = true)
+                }
             }
 
             if (filteredList.isEmpty()) {
@@ -138,15 +142,25 @@ class GalleryFragment : Fragment() {
                 return
             }
 
-            // ViewPager 및 TabLayout 갱신
-            galleryAdapter.updateData(filteredList) // 어댑터에 새 데이터 전달
-            binding.viewPager.adapter = galleryAdapter // 어댑터 재설정
+            galleryAdapter.updateData(filteredList)
 
-            // TabLayoutMediator 재생성
-            binding.tabLayout.removeAllTabs() // 기존 탭 제거
+            binding.tabLayout.removeAllTabs()
             TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-                tab.text = filteredList[position].name // 필터된 데이터 사용
+                if (position < filteredList.size) {
+                    tab.text = filteredList[position].name
+                } else {
+                    Log.w(TAG, "TabLayoutMediator: 잘못된 position 접근 $position, 리스트 크기: ${filteredList.size}")
+                }
             }.attach()
+
+            binding.viewPager.post {
+                binding.viewPager.adapter = galleryAdapter
+            }
+
+            if (filteredList.size < binding.viewPager.adapter?.itemCount ?: 0) {
+                Log.w(TAG, "performSearch: 이전 데이터 크기와 불일치, 초기화 진행")
+                binding.viewPager.adapter = null // ViewPager 초기화
+            }
 
             Log.d(TAG, "performSearch 완료: ${filteredList.size}개의 결과")
         } catch (e: Exception) {
