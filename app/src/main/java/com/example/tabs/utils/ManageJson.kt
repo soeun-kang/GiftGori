@@ -53,6 +53,7 @@ class ManageJson(private val context: Context, fileName: String) {
                 val phoneNumber = jsonObject.getString("phoneNumber")
                 val bDayString = jsonObject.getString("bDay")
                 val bDay = parseDateString(bDayString)
+                val gender = jsonObject.getString("gender")
                 val recentContact = jsonObject.getInt("recentContact")
                 val presentHistoryArray = jsonObject.getJSONArray("presentHistory")
                 val presentHistoryList = mutableListOf<PresentHistory>()
@@ -61,11 +62,12 @@ class ManageJson(private val context: Context, fileName: String) {
                     val dateString = presentHistoryObject.getString("date")
                     val gift = presentHistoryObject.getString("gift")
                     val date = parseDateString(dateString)
-                    val presentHistory = PresentHistory(date, gift)
+                    val price = presentHistoryObject.getInt("price")
+                    val presentHistory = PresentHistory(date, gift, price)
                     presentHistoryList.add(presentHistory)
                 }
 
-                val data = Contact(name, phoneNumber, bDay, recentContact, presentHistoryList)
+                val data = Contact(name, phoneNumber, bDay, gender, recentContact, presentHistoryList)
                 dataList.add(data)
             }
         } catch (e: Exception) {

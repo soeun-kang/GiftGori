@@ -1,16 +1,18 @@
 package com.example.tabs.ui.gallery
 
-import android.util.Log
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tabs.GiftDetailsActivity
 import com.example.tabs.R
+import java.text.DecimalFormat
 
 class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
     RecyclerView.Adapter<GalleryAdapter.ViewHolder>() {
@@ -20,6 +22,8 @@ class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
         val birthdayText: TextView = view.findViewById(R.id.birthdayText)
         val birthdayImage: ImageView = view.findViewById(R.id.birthdayImage)
         val historyRecyclerView: RecyclerView = view.findViewById(R.id.historyRecyclerView)
+        val similarPriceGiftsAdapter: RecyclerView = view.findViewById(R.id.similarpriceGiftsView)
+        val ageGenderGiftsAdapter: RecyclerView = view.findViewById(R.id.ageGendereGiftsView)
         val recommendedGiftsRecyclerView: RecyclerView = view.findViewById(R.id.recommendedGiftsRecyclerView)
     }
 
@@ -49,38 +53,49 @@ class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
         // 히스토리 리스트 설정
         holder.historyRecyclerView.apply {
             layoutManager = LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = object : RecyclerView.Adapter<HistoryViewHolder>() {
-                override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
-                    val view = LayoutInflater.from(parent.context).inflate(R.layout.item_history, parent, false)
-                    return HistoryViewHolder(view)
-                }
-
-                override fun onBindViewHolder(holder: HistoryViewHolder, historyPosition: Int) {
-                    val historyItem = personDetails.history[historyPosition]
-                    holder.dateTextView.text = historyItem.date
-                    holder.giftTextView.text = historyItem.gift
-                }
-
-                override fun getItemCount(): Int = personDetails.history.size
-            }
+            isNestedScrollingEnabled = false
+            adapter = HistoryAdapter(personDetails.history)
         }
 
-        // 추천 선물 리스트 설정
-        holder.recommendedGiftsRecyclerView.apply {
-            layoutManager = GridLayoutManager(holder.itemView.context, 2)
+        // 연령대 및 성별에 맞는 헤더 텍스트 설정
+        val ageGenderHeaderTextView: TextView = holder.itemView.findViewById(R.id.ageGenderGiftsHeader)
+        val ageRange = (personDetails.age / 10) * 10
+        val gender = if (personDetails.gender == "Female") "여성" else "남성"
+        ageGenderHeaderTextView.text = "${ageRange}대 ${gender}의 취향 저격 선물 리스트 💝"
 
-            Log.d("GalleryAdapter", "Setting recommendedGiftsRecyclerView for: ${personDetails.name}")
-            Log.d("GalleryAdapter", "Recommended Gifts: ${personDetails.recommendedGifts.size}")
-            personDetails.recommendedGifts.forEach { gift ->
-                Log.d("GalleryAdapter", "Gift: ${gift.name}, Price: ${gift.price}")
-            }
-
-            adapter = RecommendedGiftsAdapter(holder.itemView.context, personDetails.recommendedGifts)
-
+        // 선물 리스트 설정
+        holder.similarPriceGiftsAdapter.setup(holder.itemView.context, personDetails.similarPriceGifts){ giftItem ->
+            navigateToGiftDetails(holder.itemView.context, giftItem)
+        }
+        holder.ageGenderGiftsAdapter.setup(holder.itemView.context, personDetails.ageGenderGifts){ giftItem ->
+            navigateToGiftDetails(holder.itemView.context, giftItem)
+        }
+        holder.recommendedGiftsRecyclerView.setup(holder.itemView.context, personDetails.recommendedGifts){ giftItem ->
+            navigateToGiftDetails(holder.itemView.context, giftItem)
         }
     }
 
+    // GiftDetailsActivity로 이동하는 method
+    private fun navigateToGiftDetails(context: Context, giftItem: GiftItem) {
+        val formattedPrice = "${DecimalFormat("#,###").format(giftItem.price)}원"
+        val intent = Intent(context, GiftDetailsActivity::class.java).apply {
+            putExtra("giftName", giftItem.name)
+            putExtra("giftPrice", formattedPrice)
+            putExtra("giftImage", giftItem.imagePath)
+            putStringArrayListExtra("giftRecommendations", ArrayList(giftItem.recommendation))
+        }
+        context.startActivity(intent)
+    }
 
+    fun RecyclerView.setup(
+        context: Context,
+        data: List<GiftItem>,
+        onItemClick: (GiftItem) -> Unit
+    ) {
+        this.layoutManager = GridLayoutManager(context, 2)
+        this.adapter = RecommendedGiftsAdapter(context, data, onItemClick)
+        this.isNestedScrollingEnabled = false
+    }
 
     override fun getItemCount(): Int = personDetailsList.size
 

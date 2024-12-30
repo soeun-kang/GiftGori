@@ -7,6 +7,7 @@ data class Contact(
     val name: String,
     val phoneNumber: String,
     val bDay: Date,
+    val gender: String,
     val recentContact: Int,
     val presentHistory: List<PresentHistory>
 )
