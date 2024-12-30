@@ -23,7 +23,8 @@ class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
         val birthdayImage: ImageView = view.findViewById(R.id.birthdayImage)
         val historyRecyclerView: RecyclerView = view.findViewById(R.id.historyRecyclerView)
         val similarPriceGiftsAdapter: RecyclerView = view.findViewById(R.id.similarpriceGiftsView)
-        val ageGenderGiftsAdapter: RecyclerView = view.findViewById(R.id.ageGendereGiftsView)
+        val ageGenderGiftsAdapter: RecyclerView = view.findViewById(R.id.ageGenderGiftsView)
+        val groupGiftsAdapter: RecyclerView = view.findViewById(R.id.groupGiftsView)
         val recommendedGiftsRecyclerView: RecyclerView = view.findViewById(R.id.recommendedGiftsRecyclerView)
     }
 
@@ -63,11 +64,20 @@ class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
         val gender = if (personDetails.gender == "Female") "여성" else "남성"
         ageGenderHeaderTextView.text = "${ageRange}대 ${gender}의 취향 저격 선물 리스트 💝"
 
+        // 그룹에 맞는 헤더 텍스트 설정
+        val groupHeaderTextView: TextView = holder.itemView.findViewById(R.id.groupGiftsHeader)
+        val groupRecommendMap = loadGroupRecommendations(holder.itemView.context)
+        val groupHeaderText = groupRecommendMap[personDetails.group]?.firstOrNull() ?: "추천 문구가 없습니다."
+        groupHeaderTextView.text = groupHeaderText
+
         // 선물 리스트 설정
         holder.similarPriceGiftsAdapter.setup(holder.itemView.context, personDetails.similarPriceGifts){ giftItem ->
             navigateToGiftDetails(holder.itemView.context, giftItem)
         }
         holder.ageGenderGiftsAdapter.setup(holder.itemView.context, personDetails.ageGenderGifts){ giftItem ->
+            navigateToGiftDetails(holder.itemView.context, giftItem)
+        }
+        holder.groupGiftsAdapter.setup(holder.itemView.context, personDetails.groupGifts){ giftItem ->
             navigateToGiftDetails(holder.itemView.context, giftItem)
         }
         holder.recommendedGiftsRecyclerView.setup(holder.itemView.context, personDetails.recommendedGifts){ giftItem ->
@@ -96,6 +106,21 @@ class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
         this.adapter = RecommendedGiftsAdapter(context, data, onItemClick)
         this.isNestedScrollingEnabled = false
     }
+
+    private fun loadGroupRecommendations(context: Context): Map<String, List<String>> {
+        return try {
+            val jsonString = context.assets.open("groupRecommend_header.json").bufferedReader().use { it.readText() }
+            val jsonObject = org.json.JSONObject(jsonString)
+            jsonObject.keys().asSequence().associateWith { key ->
+                val array = jsonObject.getJSONArray(key)
+                (0 until array.length()).map { index -> array.getString(index) }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            emptyMap() // 오류 발생 시 빈 맵 반환
+        }
+    }
+
 
     override fun getItemCount(): Int = personDetailsList.size
 

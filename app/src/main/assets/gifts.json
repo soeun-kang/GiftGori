@@ -54,5 +54,13 @@
     "recommendation": ["Bill Gates", "Barack Obama", "Elon Musk"],
     "tag": ["technology", "gadgets", "Male", "Female"],
     "age_range": [25, 45]
+  },
+  {
+    "name": "스타벅스 아이스아메리카노 2잔",
+    "image_path": "starbucks_iced_americano2",
+    "price": 9000,
+    "recommendation": ["Bill Gates", "Barack Obama", "Elon Musk"],
+    "tag": ["coffee", "Male", "Female","Coworker"],
+    "age_range": [20, 35]
   }
 ]

@@ -8,6 +8,7 @@ data class Contact(
     val phoneNumber: String,
     val bDay: Date,
     val gender: String,
+    val group: String,
     val recentContact: Int,
     val presentHistory: List<PresentHistory>
 )
