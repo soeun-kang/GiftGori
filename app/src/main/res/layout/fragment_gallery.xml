@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/kakao_background"
-        app:tabIndicatorColor="@color/kakao_brown"
+        app:tabIndicatorColor="@color/black"
         app:tabIndicatorHeight="4dp"
         app:tabTextColor="@color/kakao_brown"
         app:tabMode="scrollable"
