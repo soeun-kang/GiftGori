@@ -4,7 +4,7 @@
     "image_path": "smart_speaker",
     "price": 1445300,
     "recommendation": ["Elon Musk", "Taylor Swift"],
-    "tag": ["Male", "Female" ],
+    "tag": ["남성", "여성" ],
     "age_range": [25, 35]
   },
   {
@@ -12,7 +12,7 @@
     "image_path": "fitness_tracker",
     "price": 42900,
     "recommendation": ["Cristiano Ronaldo", "Lionel Messi", "Elon Musk"],
-    "tag": ["Male", "Family", "University Friend"],
+    "tag": ["남성", "가족", "대학교 친구"],
     "age_range": [25, 45]
   },
   {
@@ -20,7 +20,7 @@
     "image_path": "bluetooth_earphone",
     "price": 24900,
     "recommendation": ["Jeff Bezos", "Oprah Winfrey", "Elon Musk"],
-    "tag": ["Male", "Female"],
+    "tag": ["남성", "여성"],
     "age_range": [25, 40]
   },
   {
@@ -28,7 +28,7 @@
     "image_path": "luxury_pen",
     "price": 49500,
     "recommendation": ["Bill Gates", "Barack Obama", "Jeff Bezos"],
-    "tag": ["Male"],
+    "tag": ["남성"],
     "age_range": [45, 80]
   },
   {
@@ -36,7 +36,7 @@
     "image_path": "airpodmax",
     "price": 745000,
     "recommendation": ["Bill Gates", "Barack Obama", "Elon Musk"],
-    "tag": ["Female", "Partner"],
+    "tag": ["여성", "애인"],
     "age_range": [15, 30]
   },
   {
@@ -44,7 +44,7 @@
     "image_path": "applewatch",
     "price": 350000,
     "recommendation": ["Bill Gates", "Barack Obama", "Elon Musk"],
-    "tag": ["Male", "Female", "Partner"],
+    "tag": ["남성", "여성", "애인"],
     "age_range": [25, 40]
   },
   {
@@ -52,7 +52,7 @@
     "image_path": "iphone",
     "price": 1400000,
     "recommendation": ["Bill Gates", "Barack Obama", "Elon Musk"],
-    "tag": ["Male", "Female"],
+    "tag": ["남성", "여성"],
     "age_range": [25, 45]
   },
   {
@@ -60,7 +60,7 @@
     "image_path": "starbucks_iced_americano2",
     "price": 9000,
     "recommendation": ["Bill Gates", "Barack Obama", "Elon Musk"],
-    "tag": ["Male", "Female","Coworker", "University Friend", "Middle School Friend"],
+    "tag": ["남성", "여성","동료", "대학교 친구", "중학교 친구"],
     "age_range": [20, 35]
   },
   {
@@ -68,7 +68,7 @@
     "image_path": "osulok_teaset",
     "price": 25500,
     "recommendation": [],
-    "tag": ["Female","Coworker", "Family"],
+    "tag": ["여성","동료", "가족"],
     "age_range": [40, 90]
   },
   {
@@ -76,7 +76,7 @@
     "image_path": "sori_cup",
     "price": 35000,
     "recommendation": [],
-    "tag": ["Female","Family"],
+    "tag": ["여성","가족"],
     "age_range": [40, 70]
   },
   {
@@ -84,7 +84,7 @@
     "image_path": "red_ginseng",
     "price": 77000,
     "recommendation": [],
-    "tag": ["Female","Family"],
+    "tag": ["여성","가족"],
     "age_range": [50, 90]
   },
   {
@@ -92,7 +92,7 @@
     "image_path": "electric_shaver",
     "price": 59900,
     "recommendation": [],
-    "tag": ["Male"],
+    "tag": ["남성"],
     "age_range": [40, 60]
   },
   {
@@ -100,7 +100,7 @@
     "image_path": "hwayo53",
     "price": 75000,
     "recommendation": [],
-    "tag": ["Male"],
+    "tag": ["남성"],
     "age_range": [50, 90]
   },
   {
@@ -108,7 +108,7 @@
     "image_path": "black_platycodon",
     "price": 39900,
     "recommendation": [],
-    "tag": ["Male", "Family"],
+    "tag": ["남성", "가족"],
     "age_range": [60, 90]
   },
   {
@@ -116,7 +116,7 @@
     "image_path": "hera_sensual_gloss",
     "price": 36000,
     "recommendation": [],
-    "tag": ["Female", "Partner"],
+    "tag": ["여성", "애인"],
     "age_range": [10, 40]
   },
   {
@@ -124,7 +124,7 @@
     "image_path": "stanley_tumbler",
     "price": 49000,
     "recommendation": [],
-    "tag": ["Female", "University Friend", "Coworker"],
+    "tag": ["여성", "대학교 친구", "동료"],
     "age_range": [15, 35]
   },
   {
@@ -132,7 +132,7 @@
     "image_path": "haagendaz_icecreamcake",
     "price": 29900,
     "recommendation": [],
-    "tag": ["Female", "Male","University Friend", "High School Friend"],
+    "tag": ["여성", "남성","대학교 친구", "고등학교 친구"],
     "age_range": [15, 35]
   },
   {
@@ -140,7 +140,7 @@
     "image_path": "burgerking",
     "price": 9900,
     "recommendation": [],
-    "tag": ["Male","University Friend", "High School Friend", "Middle School Friend"],
+    "tag": ["남성","대학교 친구", "고등학교 친구", "중학교 친구"],
     "age_range": [15, 35]
   },
   {
@@ -148,7 +148,7 @@
     "image_path": "keyring",
     "price": 12000,
     "recommendation": [],
-    "tag": ["Female","University Friend", "High School Friend", "Middle School Friend"],
+    "tag": ["여성","대학교 친구", "고등학교 친구", "중학교 친구"],
     "age_range": [15, 28]
   },
   {
@@ -156,7 +156,7 @@
     "image_path": "muffler",
     "price": 12900,
     "recommendation": [],
-    "tag": ["Female","University Friend", "High School Friend", "Middle School Friend"],
+    "tag": ["여성","대학교 친구", "고등학교 친구", "중학교 친구"],
     "age_range": [15, 35]
   },
   {
@@ -164,7 +164,7 @@
     "image_path": "tower",
     "price": 16900,
     "recommendation": [],
-    "tag": ["Male","Coworker"],
+    "tag": ["남성","동료"],
     "age_range": [20, 35]
   },
   {
@@ -172,7 +172,7 @@
     "image_path": "orthomol",
     "price": 129000,
     "recommendation": [],
-    "tag": ["Male","Female"],
+    "tag": ["남성","여성"],
     "age_range": [30, 90]
   },
   {
@@ -180,7 +180,7 @@
     "image_path": "miss_dior",
     "price": "77000",
     "recommendation": [],
-    "tag": ["Female"],
+    "tag": ["여성"],
     "age_range": [20, 40]
   },
   {
@@ -188,7 +188,7 @@
     "image_path": "gobi_muffler",
     "price": "89000",
     "recommendation": [],
-    "tag": ["Female"],
+    "tag": ["여성"],
     "age_range": [30, 60]
   },
   {
@@ -196,7 +196,7 @@
     "image_path": "gulbi",
     "price": "174800",
     "recommendation": [],
-    "tag": ["Female"],
+    "tag": ["여성"],
     "age_range": [45, 90]
   },
   {
@@ -204,7 +204,7 @@
     "image_path": "apple_tv",
     "price": "219000",
     "recommendation": [],
-    "tag": ["Male"],
+    "tag": ["남성"],
     "age_range": [30, 45]
   },
   {
@@ -212,7 +212,7 @@
     "image_path": "marshall_speaker",
     "price": 179000,
     "recommendation": [],
-    "tag": ["Male","Female"],
+    "tag": ["남성","여성"],
     "age_range": [30,50]
   },
   {
@@ -220,7 +220,7 @@
     "image_path": "illy_coffeemachine",
     "price": 159000,
     "recommendation": [],
-    "tag": ["Female", "Middle School Friend"],
+    "tag": ["여성", "중학교 친구"],
     "age_range": [25, 55]
   },
   {
@@ -228,7 +228,7 @@
     "image_path": "sony_headphone",
     "price": 199000,
     "recommendation": [],
-    "tag": ["Male", "Middle School Friend"],
+    "tag": ["남성", "중학교 친구"],
     "age_range": [25, 35]
   },
   {
@@ -236,7 +236,7 @@
     "image_path": "sony_lp",
     "price": 249000,
     "recommendation": [],
-    "tag": ["Male", "Family"],
+    "tag": ["남성", "가족"],
     "age_range": [45, 55]
   },
   {
@@ -244,7 +244,7 @@
     "image_path": "balmuda_pot",
     "price": 159000,
     "recommendation": [],
-    "tag": ["Female", "Family"],
+    "tag": ["여성", "가족"],
     "age_range": [35, 70]
   },
   {
@@ -252,7 +252,7 @@
     "image_path": "samsungssd_1tb",
     "price": 195000,
     "recommendation": [],
-    "tag": ["Male"],
+    "tag": ["남성"],
     "age_range": [30, 60]
   },
   {
@@ -260,7 +260,7 @@
     "image_path": "byredo",
     "price": 224000,
     "recommendation": [],
-    "tag": ["Female", "Partner"],
+    "tag": ["여성", "애인"],
     "age_range": [30, 60]
   },
   {
@@ -268,7 +268,7 @@
     "image_path": "prada_perfume",
     "price": 320000,
     "recommendation": [],
-    "tag": ["Female"],
+    "tag": ["여성"],
     "age_range": [30, 45]
   },
   {
@@ -276,7 +276,7 @@
     "image_path": "tiffany",
     "price": 325000,
     "recommendation": [],
-    "tag": ["Female"],
+    "tag": ["여성"],
     "age_range": [30, 45]
   },
   {
@@ -284,7 +284,7 @@
     "image_path": "thom_browne",
     "price": 320000,
     "recommendation": [],
-    "tag": ["Male"],
+    "tag": ["남성"],
     "age_range": [25, 55]
   },
   {
@@ -292,7 +292,7 @@
     "image_path": "gentlemonster",
     "price": 300000,
     "recommendation": [],
-    "tag": ["Female", "High School Friend","Partner"],
+    "tag": ["여성", "고등학교 친구","애인"],
     "age_range": [30, 55]
   },
   {
@@ -300,7 +300,7 @@
     "image_path": "stoneisland",
     "price": 250000,
     "recommendation": [],
-    "tag": ["Male","Female", "High School Friend"],
+    "tag": ["남성","여성", "고등학교 친구"],
     "age_range": [20, 35]
   },
   {
@@ -308,7 +308,7 @@
     "image_path": "daks_belt",
     "price": 245100,
     "recommendation": [],
-    "tag": ["Female", "Family"],
+    "tag": ["여성", "가족"],
     "age_range": [30, 45]
   },
   {
@@ -316,7 +316,7 @@
     "image_path": "miltonstella",
     "price": 246000,
     "recommendation": [],
-    "tag": ["Female", "Partner"],
+    "tag": ["여성", "애인"],
     "age_range": [20, 35]
   },
   {
@@ -324,7 +324,7 @@
     "image_path": "nintendo",
     "price": 350000,
     "recommendation": [],
-    "tag": ["Male","Female", "University Friend"],
+    "tag": ["남성","여성", "대학교 친구"],
     "age_range": [20, 35]
   }
 ]
