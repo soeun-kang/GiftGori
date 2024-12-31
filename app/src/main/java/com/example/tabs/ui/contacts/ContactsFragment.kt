@@ -9,13 +9,20 @@ import android.view.ViewGroup
 import android.widget.PopupWindow
 import android.widget.TextView
 import android.graphics.drawable.ColorDrawable
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.Gravity
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -45,6 +52,10 @@ class ContactsFragment : Fragment(), OnItemClickListener {
 
     private var _assignedList: List<Assigned> = listOf()
 
+    // Handler for debounce
+    private val searchHandler = Handler(Looper.getMainLooper())
+    private val searchRunnable = Runnable {}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // viewModel 가져옴
@@ -63,6 +74,7 @@ class ContactsFragment : Fragment(), OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupMenuProvider()
 
         // recyclerView 설정
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -97,6 +109,56 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         viewModel.loadContacts()
         viewModel.loadAssigned()
         binding.recyclerView.scrollToPosition(0)
+    }
+
+    private fun setupMenuProvider() {
+        requireActivity().addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menu.clear()
+                menuInflater.inflate(R.menu.menu_main, menu)
+
+                val searchItem = menu.findItem(R.id.action_search)
+                val searchView = searchItem.actionView as androidx.appcompat.widget.SearchView
+
+                searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String?): Boolean {
+                        query?.let { performSearch(it) }
+                        return true
+                    }
+
+                    override fun onQueryTextChange(newText: String?): Boolean {
+                        newText?.let { updateSearchResults(it) }
+                        return true
+                    }
+                })
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.action_search -> true
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+    }
+
+    private fun performSearch(query: String) {
+        val contactList = viewModel.contactList.value.orEmpty()
+        val filteredList = if (query.isBlank()) {
+            contactList
+        } else {
+            contactList.filter { it.name.contains(query, ignoreCase = true) }
+        }
+
+        adapter = ContactsAdapter(filteredList, this)
+        binding.recyclerView.adapter = adapter
+    }
+
+    private fun updateSearchResults(newText: String) {
+        searchHandler.removeCallbacks(searchRunnable)
+        searchHandler.postDelayed({
+            performSearch(newText)
+        }, 300) // 300ms debounce
     }
 
     override fun onDestroyView() {

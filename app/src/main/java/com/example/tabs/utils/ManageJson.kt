@@ -98,7 +98,6 @@ class ManageJson(private val context: Context) {
                     presentHistoryList.add(presentHistory)
                 }
 
-
                 val data = Contact(name, phoneNumber, bDay, gender, group, occasionsList, recentContact, presentHistoryList)
 
                 dataList.add(data)
