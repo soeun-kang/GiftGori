@@ -50,7 +50,7 @@
                     android:id="@+id/popupName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Full Name"
+                    android:text="@string/full_name"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -59,26 +59,49 @@
                     android:id="@+id/popupBirthday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Birthday(yyyy-MM-dd)"
+                    android:text="@string/birthday_yyyy_mm_dd"
                     android:textSize="14sp" />
 
             </LinearLayout>
 
-
+            <ImageButton
+                android:id="@+id/editButton"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:adjustViewBounds="true"
+                android:background="@android:color/white"
+                android:contentDescription="@string/edit_button"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_edit_pen" />
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/delete_button"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_delete" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/popupPhoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tel: (phoneNumber)"
+            android:text="@string/tel_phonenumber"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/popupRecentContact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="recentContact"
+            android:text="@string/recentcontact"
             android:textSize="14sp" />
 
         <!-- Present History 버튼 -->
@@ -88,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
 
-            android:text="present history"
+            android:text="@string/present_history"
             android:textColor="@color/white" />
 
         <!-- Present History 리스트 -->
@@ -123,15 +146,14 @@
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/white"
                 android:strokeColor="@color/black"
-
-                android:text="Assign"
+                android:text="@string/assign"
                 android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/buttonRecommendation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="추천 선물 확인하기"
+                android:text="@string/buttonToGallary"
 
                 android:textColor="@color/white" />
         </LinearLayout>

@@ -108,6 +108,56 @@ class ManageJson(private val context: Context) {
         return dataList
     }
 
+    fun parseDataListToJson(dataList: List<Contact>): String {
+        val jsonArray = JSONArray()
+
+        for (contact in dataList) {
+            val jsonObject = JSONObject()
+            try {
+                jsonObject.put("name", contact.name)
+                jsonObject.put("phoneNumber", contact.phoneNumber)
+
+                // bDay를 문자열로 변환
+                val bDayString = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(contact.bDay)
+                jsonObject.put("bDay", bDayString)
+
+                jsonObject.put("gender", contact.gender)
+                jsonObject.put("group", contact.group)
+
+                // occasions 리스트를 JSONArray로 변환
+                val occasionsArray = JSONArray()
+                for (occasion in contact.occasions) {
+                    val occasionObject = JSONObject()
+                    occasionObject.put("occasion", occasion.occasion)
+                    val dateString = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(occasion.date)
+                    occasionObject.put("date", dateString)
+                    occasionsArray.put(occasionObject)
+                }
+                jsonObject.put("occasions", occasionsArray)
+
+                jsonObject.put("recentContact", contact.recentContact)
+
+                // presentHistory 리스트를 JSONArray로 변환
+                val presentHistoryArray = JSONArray()
+                for (presentHistory in contact.presentHistory) {
+                    val presentHistoryObject = JSONObject()
+                    val dateString = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(presentHistory.date)
+                    presentHistoryObject.put("date", dateString)
+                    presentHistoryObject.put("gift", presentHistory.gift)
+                    presentHistoryObject.put("price", presentHistory.price)
+                    presentHistoryArray.put(presentHistoryObject)
+                }
+                jsonObject.put("presentHistory", presentHistoryArray)
+
+                jsonArray.put(jsonObject)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+
+        return jsonArray.toString()
+    }
+
     private fun parseDateString(dateString: String): Date {
         val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         formatter.isLenient = false // 엄격한 모드 설정

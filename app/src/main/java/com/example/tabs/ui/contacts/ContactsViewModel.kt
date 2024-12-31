@@ -36,4 +36,10 @@ class ContactsViewModel(application: Application) : AndroidViewModel(application
         _assignedList.value = manageJson.parseJsonToAssignedList(jsonString)
     }
 
+    fun updateContactList(newContactList: List<Contact>) {
+        _contactList.value = newContactList
+        val jsonString = manageJson.parseDataListToJson(_contactList.value!!)
+        manageJson.writeFileToInternalStorage("contacts.json", jsonString)
+    }
+
 }

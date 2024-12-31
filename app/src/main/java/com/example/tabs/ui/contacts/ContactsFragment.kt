@@ -1,5 +1,7 @@
 package com.example.tabs.ui.contacts
 
+import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +17,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.view.MenuProvider
@@ -22,10 +25,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.example.tabs.R
 import com.example.tabs.databinding.FragmentContactsBinding
 import com.example.tabs.ui.contacts.popup.PresentHistoryAdapter
@@ -34,9 +36,7 @@ import com.example.tabs.utils.models.Assigned
 import com.example.tabs.utils.models.Contact
 import com.example.tabs.utils.models.Occasion
 import com.google.gson.Gson
-import com.example.tabs.ui.gallery.GalleryFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.tabs.TabLayout
+import androidx.lifecycle.MutableLiveData
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -88,6 +88,17 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             // 값이 바뀌었을 때 작동
             _assignedList = assignedList.map {
                 assigned ->  assigned.copy(occasions = assigned.occasions.map { it.copy() })
+            }
+        }
+
+        // EditFragment에서 수정된 데이터를 받는 로직
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Contact>("editedContact")?.observe(viewLifecycleOwner) { editedContact ->
+            // 수정된 데이터를 받아서 처리하는 로직
+            val currentList = viewModel.contactList.value?.toMutableList() ?: mutableListOf()
+            val index = currentList.indexOfFirst { it.name == editedContact.name } // 이름으로 찾기에 이름을 변경하면 변경사항이 저장안됨 ㅋㅋ
+            if (index != -1) {
+                currentList[index] = editedContact
+                viewModel.updateContactList(currentList)
             }
         }
 
@@ -175,18 +186,18 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         val isAssigned: Boolean = (_assignedList.any { it.name == contact.name })
         // 이 사람은 이미 기념일을 챙김
         if(isAssigned) {
-            assignButton.text = "Unassign"
+            assignButton.text = getString(R.string.unassign)
         }
         else{
-            assignButton.text = "Assign"
+            assignButton.text = getString(R.string.assign)
         }
 
         popupInitial.text = "" + contact.name[0]
         popupName.text = contact.name
         val bDayFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         popupBirthday.text = bDayFormatter.format(contact.bDay)
-        popupPhoneNumber.text = "Tel: " + contact.phoneNumber
-        popupRecentContact.text = "recentContact: " + contact.recentContact.toString()
+        popupPhoneNumber.text = getString(R.string.tel_phonenumber) + " " + contact.phoneNumber
+        popupRecentContact.text = getString(R.string.recentcontact) + " " + contact.recentContact.toString()
 
         // popupWindow가 null인 경우에만 새로운 PopupWindow 객체를 생성
         if (popupWindow == null) {
@@ -210,6 +221,23 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             0
         )
 
+        // 수정버튼 클릭 시
+        val editButton = popupView.findViewById<ImageButton>(R.id.editButton)
+        editButton.setOnClickListener {
+            // 현재 contact bundle로 전송
+            val bundle = Bundle()
+            bundle.putSerializable("contact", contact)
+            findNavController().navigate(R.id.contact_to_edit, bundle)
+            popupWindow?.dismiss()
+        }
+
+        // 삭제버튼 클릭 시
+        val deleteButton = popupView.findViewById<ImageButton>(R.id.deleteButton)
+        deleteButton.setOnClickListener {
+            showDeleteConfirmationDialog(requireContext(), contact)
+            popupWindow?.dismiss()
+        }
+
         // 팝업 중 선물 목록 클릭 시
         val presentHistoryButton = popupView.findViewById<Button>(R.id.buttonPresentHistory)
         val presentHistoryLayout = popupView.findViewById<LinearLayout>(R.id.presentHistoryLayout)
@@ -226,11 +254,11 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             }
         }
 
-
+        // 일정 등록 버튼
         assignButton.setOnClickListener {
             val gson = Gson()
             if(isAssigned){
-                assignButton.text = "Unassign"
+                assignButton.text = getString(R.string.unassign)
                 // remove name from occasion.json
                 _assignedList = _assignedList.filter { it.name != contact.name }
                 val jsonString = gson.toJson(_assignedList)
@@ -240,14 +268,12 @@ class ContactsFragment : Fragment(), OnItemClickListener {
                 popupWindow?.dismiss()
                 Toast.makeText(requireContext(), getString(R.string.occasion_dismiss_success), Toast.LENGTH_SHORT).show()
             }else{
-                assignButton.text = "Assign"
+                assignButton.text = getString(R.string.assign)
                 // add name to occasion.json
                 var occasions: List<Occasion> = contact.occasions
-                occasions = occasions + Occasion("Birthday", contact.bDay)
-                println(occasions)
+                occasions = occasions + Occasion(getString(R.string.birthday), contact.bDay)
                 val assigned = Assigned(contact.name, occasions)
                 _assignedList = _assignedList + assigned
-                println(_assignedList)
                 val jsonString = gson.toJson(_assignedList)
                 val manageJson = ManageJson(requireContext())
                 manageJson.writeFileToInternalStorage("occasion.json", jsonString)
@@ -283,4 +309,23 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         }
     }
 
+    private fun showDeleteConfirmationDialog(context: Context, contact: Contact){
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("삭제 확인")
+        builder.setMessage("정말 삭제하시겠습니까?")
+        builder.setPositiveButton("예") { _, _ ->
+            // "예"를 눌렀을 때 실행할 동작
+            val currentList = viewModel.contactList.value?.toMutableList() ?: mutableListOf()
+            val index = currentList.indexOfFirst { it.name == contact.name } // 이름으로 찾기에 이름을 변경하면 변경사항이 저장안됨 ㅋㅋ
+            if (index != -1) {
+                currentList.removeAt(index)
+                viewModel.updateContactList(currentList)
+            }
+        }
+        builder.setNegativeButton("아니오") { dialog, _ ->
+            // "아니오"를 눌렀을 때 다이얼로그 닫기
+            dialog.dismiss()
+        }
+        builder.create().show()
+    }
 }
