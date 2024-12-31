@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="120"
+    android:viewportHeight="150">
+
+    <!-- Cake Base -->
+    <path
+        android:fillColor="#FFC0CB"
+        android:pathData="M20,80h80a5,5 0 0 1 5,5v30a5,5 0 0 1 -5,5h-80a5,5 0 0 1 -5,-5v-30a5,5 0 0 1 5,-5z" />
+    <path
+        android:fillColor="#D2691E"
+        android:pathData="M25,120h70a5,5 0 0 1 5,5v10a5,5 0 0 1 -5,5h-70a5,5 0 0 1 -5,-5v-10a5,5 0 0 1 5,-5z" />
+
+    <!-- Middle Layer -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M30,60h60a5,5 0 0 1 5,5v10a5,5 0 0 1 -5,5h-60a5,5 0 0 1 -5,-5v-10a5,5 0 0 1 5,-5z" />
+
+    <!-- Top Layer -->
+    <path
+        android:fillColor="#FFA07A"
+        android:pathData="M40,40h40a5,5 0 0 1 5,5v10a5,5 0 0 1 -5,5h-40a5,5 0 0 1 -5,-5v-10a5,5 0 0 1 5,-5z" />
+
+    <!-- Decorations -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,70a3,3 0 1 1 6,0a3,3 0 1 1 -6,0z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,70a3,3 0 1 1 6,0a3,3 0 1 1 -6,0z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M70,70a3,3 0 1 1 6,0a3,3 0 1 1 -6,0z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M90,70a3,3 0 1 1 6,0a3,3 0 1 1 -6,0z" />
+
+    <!-- Candles -->
+    <path
+        android:fillColor="#00BFFF"
+        android:pathData="M45,10h5v30h-5z" />
+    <path
+        android:fillColor="#FF4500"
+        android:pathData="M47.5,7a3,3 0 1 1 6,0a3,3 0 1 1 -6,0z" />
+    <path
+        android:fillColor="#00BFFF"
+        android:pathData="M70,10h5v30h-5z" />
+    <path
+        android:fillColor="#FF4500"
+        android:pathData="M72.5,7a3,3 0 1 1 6,0a3,3 0 1 1 -6,0z" />
+
+    <!-- Frosting Drips -->
+    <path
+        android:fillColor="#FFB6C1"
+        android:pathData="M20,80 Q30,70 40,80 T60,80 T80,80 T100,80z" />
+</vector>
+
