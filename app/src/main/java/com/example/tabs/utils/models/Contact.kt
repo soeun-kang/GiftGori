@@ -4,12 +4,12 @@ import java.io.Serializable
 import java.util.Date
 
 data class Contact(
-    val name: String,
-    val phoneNumber: String,
-    val bDay: Date,
-    val gender: String,
-    val group: String,
-    val occasions: List<Occasion>,
-    val recentContact: Int,
-    val presentHistory: List<PresentHistory>
+    var name: String,
+    var phoneNumber: String,
+    var bDay: Date,
+    var gender: String,
+    var group: String,
+    var occasions: List<Occasion>,
+    var recentContact: Int,
+    var presentHistory: List<PresentHistory>
 ) : Serializable

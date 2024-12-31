@@ -153,11 +153,10 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         // 수정버튼 클릭 시
         val editButton = popupView.findViewById<ImageButton>(R.id.editButton)
         editButton.setOnClickListener {
-            println("Clicked edit button")
             // 현재 contact bundle로 전송
             val bundle = Bundle()
             bundle.putSerializable("contact", contact)
-            popupWindow?.dismiss()
+            println("contact occasion in CF: $contact.occasion")
             findNavController().navigate(R.id.contact_to_edit, bundle)
             popupWindow?.dismiss()
         }

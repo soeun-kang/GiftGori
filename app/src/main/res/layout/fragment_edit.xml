@@ -141,32 +141,9 @@
         </LinearLayout>
 
         <!-- Occasion 버튼 -->
-        <Button
-            android:id="@+id/buttonEditOccasion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/present_history_button"
-            android:text="@string/present_history"
-            android:textColor="@color/white" />
-
-        <!-- Occasion 리스트 -->
-        <LinearLayout
-            android:id="@+id/editOccasionLayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <!-- RecyclerView for Occasion -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewEditOccasion"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:nestedScrollingEnabled="false" />
-        </LinearLayout>
+        <include
+            android:id="@+id/occasionDropdown"
+            layout="@layout/custom_dropdown" />
 
         <!-- 하단 버튼 -->
         <LinearLayout
