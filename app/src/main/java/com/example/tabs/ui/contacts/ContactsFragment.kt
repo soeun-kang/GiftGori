@@ -70,7 +70,6 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         viewModel.contactList.observe(viewLifecycleOwner) { contacts ->
             adapter = ContactsAdapter(contacts, this)
             binding.recyclerView.adapter = adapter
-            println("contactList changed: $contacts")
         }
         // assignedList 관찰
         viewModel.assignedList.observe(viewLifecycleOwner) { assignedList ->
@@ -83,7 +82,6 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         // EditFragment에서 수정된 데이터를 받는 로직
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Contact>("editedContact")?.observe(viewLifecycleOwner) { editedContact ->
             // 수정된 데이터를 받아서 처리하는 로직
-            println("editedContact: $editedContact")
             val currentList = viewModel.contactList.value?.toMutableList() ?: mutableListOf()
             val index = currentList.indexOfFirst { it.name == editedContact.name } // 이름으로 찾기에 이름을 변경하면 변경사항이 저장안됨 ㅋㅋ
             if (index != -1) {
@@ -126,18 +124,18 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         val isAssigned: Boolean = (_assignedList.any { it.name == contact.name })
         // 이 사람은 이미 기념일을 챙김
         if(isAssigned) {
-            assignButton.text = "Unassign"
+            assignButton.text = getString(R.string.unassign)
         }
         else{
-            assignButton.text = "Assign"
+            assignButton.text = getString(R.string.assign)
         }
 
         popupInitial.text = "" + contact.name[0]
         popupName.text = contact.name
         val bDayFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         popupBirthday.text = bDayFormatter.format(contact.bDay)
-        popupPhoneNumber.text = "Tel: " + contact.phoneNumber
-        popupRecentContact.text = "recentContact: " + contact.recentContact.toString()
+        popupPhoneNumber.text = getString(R.string.tel_phonenumber) + " " + contact.phoneNumber
+        popupRecentContact.text = getString(R.string.recentcontact) + " " + contact.recentContact.toString()
 
         // popupWindow가 null인 경우에만 새로운 PopupWindow 객체를 생성
         if (popupWindow == null) {
@@ -194,11 +192,11 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             }
         }
 
-        // 선물 챙기기 등록 버튼
+        // 일정 등록 버튼
         assignButton.setOnClickListener {
             val gson = Gson()
             if(isAssigned){
-                assignButton.text = "Unassign"
+                assignButton.text = getString(R.string.unassign)
                 // remove name from occasion.json
                 _assignedList = _assignedList.filter { it.name != contact.name }
                 val jsonString = gson.toJson(_assignedList)
@@ -208,14 +206,12 @@ class ContactsFragment : Fragment(), OnItemClickListener {
                 popupWindow?.dismiss()
                 Toast.makeText(requireContext(), getString(R.string.occasion_dismiss_success), Toast.LENGTH_SHORT).show()
             }else{
-                assignButton.text = "Assign"
+                assignButton.text = getString(R.string.assign)
                 // add name to occasion.json
                 var occasions: List<Occasion> = contact.occasions
-                occasions = occasions + Occasion("Birthday", contact.bDay)
-                println(occasions)
+                occasions = occasions + Occasion(getString(R.string.birthday), contact.bDay)
                 val assigned = Assigned(contact.name, occasions)
                 _assignedList = _assignedList + assigned
-                println(_assignedList)
                 val jsonString = gson.toJson(_assignedList)
                 val manageJson = ManageJson(requireContext())
                 manageJson.writeFileToInternalStorage("occasion.json", jsonString)

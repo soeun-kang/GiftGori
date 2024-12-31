@@ -10,7 +10,6 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tabs.R
 import com.example.tabs.utils.models.Occasion
-import com.example.tabs.utils.models.PresentHistory
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

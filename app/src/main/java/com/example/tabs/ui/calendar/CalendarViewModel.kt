@@ -21,6 +21,7 @@ class CalendarViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun loadAssigned() {
+        println("assigned load")
         val jsonString = manageJson.readFileFromInternalStorage("occasion.json")
         _assignedList.value = manageJson.parseJsonToAssignedList(jsonString)
     }

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="Select an option"
+        android:text="@string/select_an_option"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -28,7 +28,7 @@
         android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="추가하기"
+        android:text="@string/addButton"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/dropdownRecyclerView"
         app:layout_constraintStart_toStartOf="parent"

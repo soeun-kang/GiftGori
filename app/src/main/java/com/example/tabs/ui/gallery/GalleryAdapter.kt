@@ -60,7 +60,7 @@ class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
         // 연령대 및 성별에 맞는 헤더 텍스트 설정
         val ageGenderHeaderTextView: TextView = holder.itemView.findViewById(R.id.ageGenderGiftsHeader)
         val ageRange = (personDetails.age / 10) * 10
-        val gender = if (personDetails.gender == "Female") "여성" else "남성"
+        val gender = if (personDetails.gender == "@string/female") "여성" else "남성"
         ageGenderHeaderTextView.text = "${ageRange}대 ${gender}의 취향 저격 선물 리스트 💝"
 
         // 선물 리스트 설정

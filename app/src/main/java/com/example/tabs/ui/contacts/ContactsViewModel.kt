@@ -28,7 +28,6 @@ class ContactsViewModel(application: Application) : AndroidViewModel(application
 
     fun loadContacts() {
         val jsonString = manageJson.readFileFromInternalStorage("contacts.json")
-        println("loading finished")
         _contactList.value = manageJson.parseJsonToDataList(jsonString)
     }
 
@@ -41,7 +40,6 @@ class ContactsViewModel(application: Application) : AndroidViewModel(application
         _contactList.value = newContactList
         val jsonString = manageJson.parseDataListToJson(_contactList.value!!)
         manageJson.writeFileToInternalStorage("contacts.json", jsonString)
-        println("writing finished")
     }
 
 }

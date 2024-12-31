@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.tabs.databinding.FragmentCalendarBinding
 import com.example.tabs.utils.models.Assigned
 import com.applandeo.materialcalendarview.CalendarView
@@ -19,7 +18,6 @@ import com.example.tabs.utils.models.Occasion
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import java.text.ParseException
 import java.util.Calendar
 
 class CalendarFragment : Fragment() {
@@ -65,6 +63,7 @@ class CalendarFragment : Fragment() {
         val recyclerView = binding.calendarRecyclerView // binding을 사용해서 가져옵니다.
         recyclerView.layoutManager = LinearLayoutManager(context) // LayoutManager 설정
 
+        // 세부 일정 표시
         val nameOccasionList = mutableListOf<NameOccasion>()
         val calendar: Calendar = Calendar.getInstance()
         val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -140,13 +139,13 @@ class CalendarFragment : Fragment() {
         _binding = null
     }
 
-    // occasion을 받아서 매년있는 것이라면 당일~현재+10년치 occasion 반환
+    // occasion을 받아서 매년있는 것이라면 현재~현재+10년치 occasion 반환
     private fun extendOccasion(occasion: Occasion): List<Occasion> {
         val res = mutableListOf<Occasion>()
         val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        if(occasion.occasion == "Birthday"
-            || occasion.occasion == "Parents' Day"
-            || occasion.occasion == "Wedding Anniversary") {
+        if(occasion.occasion == getString(R.string.birthday)
+            || occasion.occasion == getString(R.string.parents_day)
+            || occasion.occasion == getString(R.string.wedding_anniversary)) {
             // 년마다 돌아오는 기념일이면 당일부터 지금으로부터 10년후까지 매년 생일에 EventDay 추가
             val calendar = Calendar.getInstance()
             val currentYear = calendar.get(Calendar.YEAR)
@@ -154,7 +153,7 @@ class CalendarFragment : Fragment() {
             val bDayYear = calendar.get(Calendar.YEAR)
             val bDayMonth = calendar.get(Calendar.MONTH)
             val bDayDay = calendar.get(Calendar.DAY_OF_MONTH)
-            for (year in bDayYear..currentYear + 10) {
+            for (year in currentYear..currentYear + 10) {
                 val rcalendar = Calendar.getInstance()
                 rcalendar.set(Calendar.YEAR, year)
                 rcalendar.set(Calendar.MONTH, bDayMonth)
@@ -172,10 +171,10 @@ class CalendarFragment : Fragment() {
 
     // occasion들을 받아 해당하는 icon 반환
     private fun getOccasionIcon(occasions: List<String>): Int{
-        val hasBirthday = occasions.contains("Birthday")
-        val hasParentsDay = occasions.contains("Parents' Day")
-        val hasWeddingAnniversary = occasions.contains("Wedding Anniversary")
-        val hasUnknown = occasions.any { it != "Birthday" && it != "Parents' Day" && it != "Wedding Anniversary" }
+        val hasBirthday = occasions.contains(getString(R.string.birthday))
+        val hasParentsDay = occasions.contains(getString(R.string.parents_day))
+        val hasWeddingAnniversary = occasions.contains(getString(R.string.wedding_anniversary))
+        val hasUnknown = occasions.any { it != getString(R.string.birthday) && it != getString(R.string.parents_day) && it != getString(R.string.wedding_anniversary) }
 
         return when {
             hasBirthday && !hasParentsDay && !hasWeddingAnniversary && !hasUnknown -> R.drawable.icon_event_1_bday
