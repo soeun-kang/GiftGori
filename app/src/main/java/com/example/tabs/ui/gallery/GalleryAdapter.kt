@@ -58,6 +58,20 @@ class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
             adapter = HistoryAdapter(personDetails.history)
         }
 
+        // 히스토리 비어 있는지 확인
+        val emptyHistoryImage = holder.itemView.findViewById<ImageView>(R.id.empty_history_image)
+        val emptyHistoryText = holder.itemView.findViewById<TextView>(R.id.empty_history_textView)
+
+        if (personDetails.history.isEmpty()) {
+            // 히스토리 리스트가 비어 있을 때만 empty view를 보이게 함
+            emptyHistoryImage.visibility = View.VISIBLE
+            emptyHistoryText.visibility = View.VISIBLE
+        } else {
+            // 히스토리 리스트가 있을 때 empty view를 숨김
+            emptyHistoryImage.visibility = View.GONE
+            emptyHistoryText.visibility = View.GONE
+        }
+
         // 연령대 및 성별에 맞는 헤더 텍스트 설정
         val ageGenderHeaderTextView: TextView = holder.itemView.findViewById(R.id.ageGenderGiftsHeader)
         val ageRange = (personDetails.age / 10) * 10
