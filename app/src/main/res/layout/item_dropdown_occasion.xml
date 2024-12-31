@@ -5,17 +5,24 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
+    <EditText
         android:id="@+id/occasion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="여기에 선물명을 입력하세요" />
+        android:contentDescription="기념일 종류"
+        android:hint="여기에 기념일 종류를 입력하세요"
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="여기에 날짜를 입력하세요" />
+        android:layout_marginTop="8dp"
+        android:contentDescription="기념일 수정"
+        android:focusable="false"
+        android:hint="기념일을 선택하세요"
+        android:padding="12dp"
+        android:textSize="14sp" />
 </LinearLayout>

@@ -67,12 +67,12 @@ class EditFragment : Fragment() {
             phoneNumberEditText.setText(newContact.phoneNumber)
 
             val birthdayEditText = view.findViewById<EditText>(R.id.editBirthday)
-            // yyyy-MM-dd 형태로 표시
+            // 생일
             val myFormat = "yyyy-MM-dd" // 원하는 날짜 형식
             val sdf = SimpleDateFormat(myFormat, Locale.KOREA)
             birthdayEditText.setText(sdf.format(newContact.bDay))
             birthdayEditText.setOnClickListener{
-                showDatePickerDialog(newContact.bDay, birthdayEditText)
+                newContact.bDay = showDatePickerDialog(newContact.bDay, birthdayEditText)
                 birthdayEditText.setText(sdf.format(newContact.bDay))
             }
 
@@ -93,12 +93,12 @@ class EditFragment : Fragment() {
                 spinnerRelationship.setSelection(defaultPosition)
             }
 
-            // occasions 설정
+            // 기념일 설정
             val customDropdown = view.findViewById<View>(R.id.occasionDropdown)
             val occasionTitle = customDropdown.findViewById<TextView>(R.id.dropdownTitle)
             val occasionRecyclerView = customDropdown.findViewById<RecyclerView>(R.id.dropdownRecyclerView)
             println("newContact.occasions: ${newContact.occasions}")
-            val occasionAdapter = OccasionAdapter(newContact.occasions)
+            val occasionAdapter = OccasionAdapter(newContact.occasions, this)
             println(occasionAdapter)
             occasionRecyclerView.adapter = occasionAdapter
             occasionRecyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -126,8 +126,8 @@ class EditFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun showDatePickerDialog(selectedDate: Date?, editView: EditText) {
-        var sDate: Date?
+    fun showDatePickerDialog(selectedDate: Date?, editView: EditText) : Date {
+        var sDate = selectedDate
         val calendar = Calendar.getInstance()
         if (selectedDate != null) {
             calendar.time = selectedDate!!
@@ -136,7 +136,6 @@ class EditFragment : Fragment() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        val birthdayEditText = editView
         val myFormat = "yyyy-MM-dd" // 원하는 날짜 형식
         val sdf = SimpleDateFormat(myFormat, Locale.KOREA)
 
@@ -146,14 +145,14 @@ class EditFragment : Fragment() {
                 val selectedCalendar = Calendar.getInstance()
                 selectedCalendar.set(selectedYear, selectedMonth, selectedDay)
                 sDate = selectedCalendar.time
-                newContact.bDay = sDate!!
-                birthdayEditText.setText(sdf.format(newContact.bDay))
+                editView.setText(sdf.format(sDate))
             },
             year,
             month,
             day
         )
         datePickerDialog.show()
+        return sDate!!
     }
 
 
