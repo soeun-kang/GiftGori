@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Elon Musk",
+    "occasions": [
+      {
+        "occasion": "Birthday",
+        "date": "1971-06-28"
+      }
+    ]
+  },
+  {
+    "name": "Father",
+    "occasions": [
+      {
+        "occasion": "Birthday",
+        "date": "1965-01-15"
+      },
+      {
+        "occasion": "Wedding Anniversary",
+        "date": "2025-11-11"
+      },
+      {
+        "occasion": "Parents' Day",
+        "date": "2025-05-05"
+      }
+    ]
+  }
+]

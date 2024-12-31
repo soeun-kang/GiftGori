@@ -33,7 +33,6 @@ class ContactsAdapter(
             binding.personName.text = contact.name
             val bDayFormatter = SimpleDateFormat("MM-dd", Locale.getDefault())
             binding.personBirthday.text = "생일: "+bDayFormatter.format(contact.bDay)
-            println(contact.name)
         }
     }
 
