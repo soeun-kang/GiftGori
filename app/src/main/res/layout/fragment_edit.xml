@@ -112,37 +112,15 @@
             android:contentDescription="@string/select_relationship"
             android:entries="@array/relationships" />
 
-        <!-- Present History 버튼 -->
-        <Button
-            android:id="@+id/buttonEditPresentHistory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/present_history_button"
-            android:text="@string/present_history"
-            android:textColor="@color/white" />
-
-        <!-- Present History 리스트 -->
-        <LinearLayout
-            android:id="@+id/editPresentHistoryLayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <!-- RecyclerView for Present History -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewEditPresentHistory"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:nestedScrollingEnabled="false" />
-        </LinearLayout>
 
         <!-- Occasion 버튼 -->
         <include
             android:id="@+id/occasionDropdown"
+            layout="@layout/custom_dropdown" />
+
+        <!-- Present History 버튼 -->
+        <include
+            android:id="@+id/presentDropdown"
             layout="@layout/custom_dropdown" />
 
         <!-- 하단 버튼 -->

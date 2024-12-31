@@ -1,5 +1,6 @@
 package com.example.tabs.ui.contacts.edit
 
+import android.app.DatePickerDialog
 import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
@@ -9,151 +10,174 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import com.example.tabs.utils.models.Contact
-import android.app.DatePickerDialog
 import java.util.Date
 import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tabs.R
-import kotlin.text.format
 import android.widget.DatePicker
+import android.widget.Button
 import java.text.SimpleDateFormat
 import java.util.Locale
 
 class EditFragment : Fragment() {
 
     private lateinit var newContact: Contact
-    private var isOccasionDropdownVisible = false
+    private lateinit var occasionAdapter: OccasionAdapter
+    private lateinit var presentAdapter: PresentAdapter
+    private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.KOREA)
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // 레이아웃 파일을 inflate하여 View 객체 생성
         return inflater.inflate(R.layout.fragment_edit, container, false)
     }
-
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 수정할 데이터들을 contact fragment에서 받아온다
-        val contact = arguments?.getSerializable("contact", Contact::class.java) as? Contact
+        val contact = arguments?.getSerializable("contact", Contact::class.java)
 
-
-        // 정보 수정이 아니라 새로운 Contact 추가인 경우
-        if(contact == null){
-
+        if (contact == null) {
+            newContact = Contact("", "", Date(), "", "", mutableListOf(), 0, mutableListOf())
+        } else {
+            newContact = contact.copy(occasions = contact.occasions.toMutableList(), presentHistory = contact.presentHistory.toMutableList())
+            setupContactInfo(view)
         }
-        else{
-            // 수정인 경우
-            // 받아온 정보 풀어서 저장
-            println("contact occasion in EF: ${contact.occasions}")
-            contact.let {
-                newContact = Contact(it.name, it.phoneNumber, it.bDay, it.gender, it.group, it.occasions, it.recentContact, it.presentHistory)
+
+        setupOccasionDropdown(view, contact)
+        setupPresentDropdown(view, contact)
+        setupApplyButton(view)
+        setupCancelButton(view)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun setupContactInfo(view: View) {
+        view.apply {
+            findViewById<EditText>(R.id.editName).setText(newContact.name)
+            findViewById<EditText>(R.id.editPhoneNumber).setText(newContact.phoneNumber)
+            val birthdayEditText = findViewById<EditText>(R.id.editBirthday)
+            birthdayEditText.setText(dateFormat.format(newContact.bDay))
+            birthdayEditText.setOnClickListener {
+                showDatePickerDialog(newContact.bDay, birthdayEditText) { date ->
+                    newContact.bDay = date
+                    birthdayEditText.setText(dateFormat.format(newContact.bDay))
+                }
             }
+            val genderEdit = findViewById<RadioGroup>(R.id.radioGroupGender)
+            if (newContact.gender == "Male") genderEdit.check(R.id.radioMale)
+            else genderEdit.check(R.id.radioFemale)
 
-            /* 해당하는 뷰 찾아서 기존 정보 표시 */
-            val nameEditText = view.findViewById<EditText>(R.id.editName)
-            nameEditText.setText(newContact.name)
-
-            val phoneNumberEditText = view.findViewById<EditText>(R.id.editPhoneNumber)
-            phoneNumberEditText.setText(newContact.phoneNumber)
-
-            val birthdayEditText = view.findViewById<EditText>(R.id.editBirthday)
-            // 생일
-            val myFormat = "yyyy-MM-dd" // 원하는 날짜 형식
-            val sdf = SimpleDateFormat(myFormat, Locale.KOREA)
-            birthdayEditText.setText(sdf.format(newContact.bDay))
-            birthdayEditText.setOnClickListener{
-                newContact.bDay = showDatePickerDialog(newContact.bDay, birthdayEditText)
-                birthdayEditText.setText(sdf.format(newContact.bDay))
-            }
-
-            val genderEdit = view.findViewById<RadioGroup>(R.id.radioGroupGender)
-            if(newContact.gender == "Male")
-                genderEdit.check(R.id.radioMale)
-            else
-                genderEdit.check(R.id.radioFemale)
-
-            val spinnerRelationship: Spinner = view.findViewById(R.id.spinnerRelationship)
+            val spinnerRelationship: Spinner = findViewById(R.id.spinnerRelationship)
             val relationships = resources.getStringArray(R.array.relationships)
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, relationships)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinnerRelationship.adapter = adapter
-            val defaultRelationship = newContact.group
-            val defaultPosition = relationships.indexOf(defaultRelationship)
-            if (defaultPosition != -1) {
-                spinnerRelationship.setSelection(defaultPosition)
-            }
-
-            // 기념일 설정
-            val customDropdown = view.findViewById<View>(R.id.occasionDropdown)
-            val occasionTitle = customDropdown.findViewById<TextView>(R.id.dropdownTitle)
-            val occasionRecyclerView = customDropdown.findViewById<RecyclerView>(R.id.dropdownRecyclerView)
-            println("newContact.occasions: ${newContact.occasions}")
-            val occasionAdapter = OccasionAdapter(newContact.occasions, this)
-            println(occasionAdapter)
-            occasionRecyclerView.adapter = occasionAdapter
-            occasionRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-            occasionTitle.text = "추가로 기념할 수 있는 날들이에요"
-            occasionTitle.setOnClickListener {
-                isOccasionDropdownVisible = toggleDropdown(occasionRecyclerView, isOccasionDropdownVisible)
-            }
-
-            // presentHistory 설정
-
-
+            val defaultPosition = relationships.indexOf(newContact.group)
+            if (defaultPosition != -1) spinnerRelationship.setSelection(defaultPosition)
         }
-
-
     }
 
-    private fun toggleDropdown(recyclerView: RecyclerView, check: Boolean) : Boolean {
-        if (check) {
-            recyclerView.visibility = View.GONE
-        } else {
-            recyclerView.visibility = View.VISIBLE
+    private fun setupOccasionDropdown(view: View, contact: Contact?) {
+        val customDropdown = view.findViewById<View>(R.id.occasionDropdown)
+        val occasionTitle = customDropdown.findViewById<TextView>(R.id.dropdownTitle)
+        val occasionRecyclerView = customDropdown.findViewById<RecyclerView>(R.id.dropdownRecyclerView)
+        val addButton = customDropdown.findViewById<Button>(R.id.addButton)
+
+        occasionAdapter = OccasionAdapter(newContact.occasions, this)
+        occasionRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = occasionAdapter
         }
-        println(recyclerView.visibility)
-        return !check
+
+        occasionTitle.text = "추가로 기념할 수 있는 날들이에요"
+        occasionTitle.setOnClickListener {
+            toggleDropdown(occasionRecyclerView, addButton)
+        }
+        addButton.setOnClickListener {
+            occasionAdapter.addItem()
+        }
+    }
+
+    private fun setupPresentDropdown(view: View, contact: Contact?) {
+        val presentDropdown = view.findViewById<View>(R.id.presentDropdown)
+        val presentTitle = presentDropdown.findViewById<TextView>(R.id.dropdownTitle)
+        val presentRecyclerView = presentDropdown.findViewById<RecyclerView>(R.id.dropdownRecyclerView)
+        val addButton = presentDropdown.findViewById<Button>(R.id.addButton)
+
+        presentAdapter = PresentAdapter(newContact.presentHistory, this)
+        presentRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = presentAdapter
+        }
+
+        presentTitle.text = "그동안 선물 받은 목록이에요"
+        presentTitle.setOnClickListener {
+            toggleDropdown(presentRecyclerView, addButton)
+        }
+        addButton.setOnClickListener {
+            presentAdapter.addItem()
+        }
+    }
+
+    private fun setupApplyButton(view: View) {
+        view.findViewById<Button>(R.id.buttonApply).setOnClickListener {
+            newContact.apply {
+                name = view.findViewById<EditText>(R.id.editName).text.toString()
+                phoneNumber = view.findViewById<EditText>(R.id.editPhoneNumber).text.toString()
+                gender = if (view.findViewById<RadioGroup>(R.id.radioGroupGender).checkedRadioButtonId == R.id.radioMale) "Male" else "Female"
+                group = view.findViewById<Spinner>(R.id.spinnerRelationship).selectedItem.toString()
+                occasions = occasionAdapter.getItems()
+                presentHistory = presentAdapter.getItems()
+            }
+            findNavController().previousBackStackEntry?.savedStateHandle?.set("editedContact", newContact)
+            findNavController().popBackStack()
+        }
+    }
+
+    private fun setupCancelButton(view: View) {
+        view.findViewById<Button>(R.id.buttonCancel).setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    private fun toggleDropdown(recyclerView: RecyclerView, addButton: Button) {
+        val isVisible = recyclerView.visibility == View.VISIBLE
+        recyclerView.visibility = if (isVisible) View.GONE else View.VISIBLE
+        addButton.visibility = if (isVisible) View.GONE else View.VISIBLE
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    fun showDatePickerDialog(selectedDate: Date?, editView: EditText) : Date {
-        var sDate = selectedDate
+    fun showDatePickerDialog(selectedDate: Date?, editView: EditText, callback: (Date) -> Unit) {
         val calendar = Calendar.getInstance()
         if (selectedDate != null) {
-            calendar.time = selectedDate!!
+            calendar.time = selectedDate
         }
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-        val myFormat = "yyyy-MM-dd" // 원하는 날짜 형식
-        val sdf = SimpleDateFormat(myFormat, Locale.KOREA)
 
         val datePickerDialog = DatePickerDialog(
             requireContext(),
             { _: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
                 val selectedCalendar = Calendar.getInstance()
                 selectedCalendar.set(selectedYear, selectedMonth, selectedDay)
-                sDate = selectedCalendar.time
-                editView.setText(sdf.format(sDate))
+                val sDate = selectedCalendar.time
+                editView.setText(dateFormat.format(sDate))
+                callback(sDate)
             },
             year,
             month,
             day
         )
         datePickerDialog.show()
-        return sDate!!
     }
-
-
 }

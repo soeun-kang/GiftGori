@@ -1,5 +1,7 @@
 package com.example.tabs.ui.contacts
 
+import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,10 +19,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.example.tabs.R
 import com.example.tabs.databinding.FragmentContactsBinding
 import com.example.tabs.ui.contacts.popup.PresentHistoryAdapter
@@ -29,9 +29,7 @@ import com.example.tabs.utils.models.Assigned
 import com.example.tabs.utils.models.Contact
 import com.example.tabs.utils.models.Occasion
 import com.google.gson.Gson
-import com.example.tabs.ui.gallery.GalleryFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.tabs.TabLayout
+import androidx.lifecycle.MutableLiveData
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -72,12 +70,25 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         viewModel.contactList.observe(viewLifecycleOwner) { contacts ->
             adapter = ContactsAdapter(contacts, this)
             binding.recyclerView.adapter = adapter
+            println("contactList changed: $contacts")
         }
         // assignedList 관찰
         viewModel.assignedList.observe(viewLifecycleOwner) { assignedList ->
             // 값이 바뀌었을 때 작동
             _assignedList = assignedList.map {
                 assigned ->  assigned.copy(occasions = assigned.occasions.map { it.copy() })
+            }
+        }
+
+        // EditFragment에서 수정된 데이터를 받는 로직
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Contact>("editedContact")?.observe(viewLifecycleOwner) { editedContact ->
+            // 수정된 데이터를 받아서 처리하는 로직
+            println("editedContact: $editedContact")
+            val currentList = viewModel.contactList.value?.toMutableList() ?: mutableListOf()
+            val index = currentList.indexOfFirst { it.name == editedContact.name } // 이름으로 찾기에 이름을 변경하면 변경사항이 저장안됨 ㅋㅋ
+            if (index != -1) {
+                currentList[index] = editedContact
+                viewModel.updateContactList(currentList)
             }
         }
 
@@ -156,8 +167,14 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             // 현재 contact bundle로 전송
             val bundle = Bundle()
             bundle.putSerializable("contact", contact)
-            println("contact occasion in CF: $contact.occasion")
             findNavController().navigate(R.id.contact_to_edit, bundle)
+            popupWindow?.dismiss()
+        }
+
+        // 삭제버튼 클릭 시
+        val deleteButton = popupView.findViewById<ImageButton>(R.id.deleteButton)
+        deleteButton.setOnClickListener {
+            showDeleteConfirmationDialog(requireContext(), contact)
             popupWindow?.dismiss()
         }
 
@@ -234,4 +251,23 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         }
     }
 
+    private fun showDeleteConfirmationDialog(context: Context, contact: Contact){
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("삭제 확인")
+        builder.setMessage("정말 삭제하시겠습니까?")
+        builder.setPositiveButton("예") { _, _ ->
+            // "예"를 눌렀을 때 실행할 동작
+            val currentList = viewModel.contactList.value?.toMutableList() ?: mutableListOf()
+            val index = currentList.indexOfFirst { it.name == contact.name } // 이름으로 찾기에 이름을 변경하면 변경사항이 저장안됨 ㅋㅋ
+            if (index != -1) {
+                currentList.removeAt(index)
+                viewModel.updateContactList(currentList)
+            }
+        }
+        builder.setNegativeButton("아니오") { dialog, _ ->
+            // "아니오"를 눌렀을 때 다이얼로그 닫기
+            dialog.dismiss()
+        }
+        builder.create().show()
+    }
 }
