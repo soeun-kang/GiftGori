@@ -63,8 +63,8 @@ class GalleryViewModel : ViewModel() {
     private fun filterGiftsByPrice(giftList: List<GiftItem>, prices: List<Double>): List<GiftItem> {
         if (prices.isEmpty()) return emptyList()
         val averagePrice = prices.average()
-        val minPrice = averagePrice * 0.6
-        val maxPrice = averagePrice * 1.5
+        val minPrice = averagePrice * 0.8
+        val maxPrice = averagePrice * 1.2
         Log.d("PriceFilter", "Average Price: $averagePrice, Range: $minPrice ~ $maxPrice")
         return giftList.filter { gift -> gift.price in minPrice.toInt()..maxPrice.toInt() }
     }
@@ -79,6 +79,16 @@ class GalleryViewModel : ViewModel() {
         }
     }
 
+    private fun filterGiftsByGroup(
+        giftList: List<GiftItem>,
+        group: String,
+        gender: String
+    ): List<GiftItem> {
+        return giftList.filter { gift ->
+            gift.tag.any { it.equals(gender, ignoreCase = true) } && gift.tag.any { it.equals(group, ignoreCase = true) }
+        }
+    }
+
     private fun parsePersonDetails(contact: Contact, giftList: List<GiftItem>): PersonDetails {
         val age = calculateAge(contact.bDay)
         val prices = contact.presentHistory.mapNotNull { it.price.toDouble() }
@@ -89,6 +99,7 @@ class GalleryViewModel : ViewModel() {
             age = age,
             gender = contact.gender,
             remain = remainDays,
+            group = contact.group,
             history = contact.presentHistory.map {
                 HistoryItem(
                     date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(it.date),
@@ -98,6 +109,7 @@ class GalleryViewModel : ViewModel() {
             },
             similarPriceGifts = filterGiftsByPrice(giftList, prices),
             ageGenderGifts = filterGiftsByDemographics(giftList, contact.gender, age),
+            groupGifts = filterGiftsByGroup(giftList, contact.group, contact.gender),
             recommendedGifts = giftList.filter { gift ->
                 gift.recommendation.any { it.equals(contact.name, ignoreCase = true) }
             }
@@ -140,9 +152,11 @@ data class PersonDetails(
     val age: Int,
     val gender: String,
     val remain: Int,
+    val group: String,
     val history: List<HistoryItem>,
     val similarPriceGifts: List<GiftItem>,
     val ageGenderGifts: List<GiftItem>,
+    val groupGifts: List<GiftItem>,
     val recommendedGifts: List<GiftItem>
 )
 

@@ -86,6 +86,7 @@ class ManageJson(private val context: Context) {
                 }
 
                 val recentContact = jsonObject.getInt("recentContact")
+                val group = jsonObject.getString("group")
                 val presentHistoryArray = jsonObject.getJSONArray("presentHistory")
                 val presentHistoryList = mutableListOf<PresentHistory>()
                 for (j in 0 until presentHistoryArray.length()) {
@@ -97,7 +98,6 @@ class ManageJson(private val context: Context) {
                     val presentHistory = PresentHistory(date, gift, price)
                     presentHistoryList.add(presentHistory)
                 }
-
 
                 val data = Contact(name, phoneNumber, bDay, gender, group, occasionsList, recentContact, presentHistoryList)
 
