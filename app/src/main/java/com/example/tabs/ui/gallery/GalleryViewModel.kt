@@ -62,8 +62,8 @@ class GalleryViewModel : ViewModel() {
     private fun filterGiftsByPrice(giftList: List<GiftItem>, prices: List<Double>): List<GiftItem> {
         if (prices.isEmpty()) return emptyList()
         val averagePrice = prices.average()
-        val minPrice = averagePrice * 0.6
-        val maxPrice = averagePrice * 1.5
+        val minPrice = averagePrice * 0.8
+        val maxPrice = averagePrice * 1.2
         Log.d("PriceFilter", "Average Price: $averagePrice, Range: $minPrice ~ $maxPrice")
         return giftList.filter { gift -> gift.price in minPrice.toInt()..maxPrice.toInt() }
     }

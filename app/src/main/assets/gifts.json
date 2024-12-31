@@ -29,7 +29,7 @@
     "price": 49500,
     "recommendation": ["Bill Gates", "Barack Obama", "Jeff Bezos"],
     "tag": ["Male"],
-    "age_range": [45, 70]
+    "age_range": [45, 80]
   },
   {
     "name": "에어팟 맥스",
@@ -56,11 +56,11 @@
     "age_range": [25, 45]
   },
   {
-    "name": "스타벅스 아이스아메리카노 2잔",
+    "name": "스타벅스 아이스아메리카노",
     "image_path": "starbucks_iced_americano2",
     "price": 9000,
     "recommendation": ["Bill Gates", "Barack Obama", "Elon Musk"],
-    "tag": ["Male", "Female","Coworker", "University Friend"],
+    "tag": ["Male", "Female","Coworker", "University Friend", "Middle School Friend"],
     "age_range": [20, 35]
   },
   {
@@ -69,7 +69,7 @@
     "price": 25500,
     "recommendation": [],
     "tag": ["Female","Coworker", "Family"],
-    "age_range": [40, 80]
+    "age_range": [40, 90]
   },
   {
     "name": "광주요 소리잔",
@@ -80,12 +80,12 @@
     "age_range": [40, 70]
   },
   {
-    "name": "정관장 홍삼정 에브리타임 30포",
+    "name": "정관장 홍삼정 에브리타임",
     "image_path": "red_ginseng",
     "price": 77000,
     "recommendation": [],
     "tag": ["Female","Family"],
-    "age_range": [50, 80]
+    "age_range": [50, 90]
   },
   {
     "name": "토트넘 홋스퍼 전기면도기",
@@ -101,7 +101,7 @@
     "price": 75000,
     "recommendation": [],
     "tag": ["Male"],
-    "age_range": [50, 80]
+    "age_range": [50, 90]
   },
   {
     "name": "흑도라지청 진액 스틱",
@@ -109,7 +109,7 @@
     "price": 39900,
     "recommendation": [],
     "tag": ["Male", "Family"],
-    "age_range": [60, 80]
+    "age_range": [60, 90]
   },
   {
     "name": "헤라 센슈얼 누드 글로스",
@@ -124,7 +124,7 @@
     "image_path": "stanley_tumbler",
     "price": 49000,
     "recommendation": [],
-    "tag": ["Female", "University Friend"],
+    "tag": ["Female", "University Friend", "Coworker"],
     "age_range": [15, 35]
   },
   {
@@ -134,6 +134,197 @@
     "recommendation": [],
     "tag": ["Female", "Male","University Friend", "High School Friend"],
     "age_range": [15, 35]
+  },
+  {
+    "name": "버거킹 통새우 와퍼 세트",
+    "image_path": "burgerking",
+    "price": 9900,
+    "recommendation": [],
+    "tag": ["Male","University Friend", "High School Friend", "Middle School Friend"],
+    "age_range": [15, 35]
+  },
+  {
+    "name": "다이노탱 보보 야구공 키링",
+    "image_path": "keyring",
+    "price": 12000,
+    "recommendation": [],
+    "tag": ["Female","University Friend", "High School Friend", "Middle School Friend"],
+    "age_range": [15, 28]
+  },
+  {
+    "name": "머플러 목도리",
+    "image_path": "muffler",
+    "price": 12900,
+    "recommendation": [],
+    "tag": ["Female","University Friend", "High School Friend", "Middle School Friend"],
+    "age_range": [15, 35]
+  },
+  {
+    "name": "수건 세트",
+    "image_path": "tower",
+    "price": 16900,
+    "recommendation": [],
+    "tag": ["Male","Coworker"],
+    "age_range": [20, 35]
+  },
+  {
+    "name": "오쏘몰 이뮨 멀티비타민",
+    "image_path": "orthomol",
+    "price": 129000,
+    "recommendation": [],
+    "tag": ["Male","Female"],
+    "age_range": [30, 90]
+  },
+  {
+    "name": "미스 디올 헤어미스트",
+    "image_path": "miss_dior",
+    "price": "77000",
+    "recommendation": [],
+    "tag": ["Female"],
+    "age_range": [20, 40]
+  },
+  {
+    "name": "고비 캐시미어 머플러",
+    "image_path": "gobi_muffler",
+    "price": "89000",
+    "recommendation": [],
+    "tag": ["Female"],
+    "age_range": [30, 60]
+  },
+  {
+    "name": "영광법성포 참굴비",
+    "image_path": "gulbi",
+    "price": "174800",
+    "recommendation": [],
+    "tag": ["Female"],
+    "age_range": [45, 90]
+  },
+  {
+    "name": "애플티비 3세대",
+    "image_path": "apple_tv",
+    "price": "219000",
+    "recommendation": [],
+    "tag": ["Male"],
+    "age_range": [30, 45]
+  },
+  {
+    "name": "마샬 포터블 블루투스 스피커",
+    "image_path": "marshall_speaker",
+    "price": 179000,
+    "recommendation": [],
+    "tag": ["Male","Female"],
+    "age_range": [30,50]
+  },
+  {
+    "name": "일리 커피머신",
+    "image_path": "illy_coffeemachine",
+    "price": 159000,
+    "recommendation": [],
+    "tag": ["Female", "Middle School Friend"],
+    "age_range": [25, 55]
+  },
+  {
+    "name": "소니 무선 헤드폰",
+    "image_path": "sony_headphone",
+    "price": 199000,
+    "recommendation": [],
+    "tag": ["Male", "Middle School Friend"],
+    "age_range": [25, 35]
+  },
+  {
+    "name": "소니 턴테이블 LP플레이어",
+    "image_path": "sony_lp",
+    "price": 249000,
+    "recommendation": [],
+    "tag": ["Male", "Family"],
+    "age_range": [45, 55]
+  },
+  {
+    "name": "발뮤다 전기포트",
+    "image_path": "balmuda_pot",
+    "price": 159000,
+    "recommendation": [],
+    "tag": ["Female", "Family"],
+    "age_range": [35, 70]
+  },
+  {
+    "name": "삼성SSD 1TB 외장하드",
+    "image_path": "samsungssd_1tb",
+    "price": 195000,
+    "recommendation": [],
+    "tag": ["Male"],
+    "age_range": [30, 60]
+  },
+  {
+    "name": "바이레도 오드퍼퓸",
+    "image_path": "byredo",
+    "price": 224000,
+    "recommendation": [],
+    "tag": ["Female", "Partner"],
+    "age_range": [30, 60]
+  },
+  {
+    "name": "프라다 레 인퓨전 드 아이리스",
+    "image_path": "prada_perfume",
+    "price": 320000,
+    "recommendation": [],
+    "tag": ["Female"],
+    "age_range": [30, 45]
+  },
+  {
+    "name": "티파니 인피니티 펜던트",
+    "image_path": "tiffany",
+    "price": 325000,
+    "recommendation": [],
+    "tag": ["Female"],
+    "age_range": [30, 45]
+  },
+  {
+    "name": "톰브라운 카드지갑",
+    "image_path": "thom_browne",
+    "price": 320000,
+    "recommendation": [],
+    "tag": ["Male"],
+    "age_range": [25, 55]
+  },
+  {
+    "name": "젠틀몬스터 호보01",
+    "image_path": "gentlemonster",
+    "price": 300000,
+    "recommendation": [],
+    "tag": ["Female", "High School Friend","Partner"],
+    "age_range": [30, 55]
+  },
+  {
+    "name": "스톤아일랜드 울 비니",
+    "image_path": "stoneisland",
+    "price": 250000,
+    "recommendation": [],
+    "tag": ["Male","Female", "High School Friend"],
+    "age_range": [20, 35]
+  },
+  {
+    "name": "닥스 프리미엄 비조벨트",
+    "image_path": "daks_belt",
+    "price": 245100,
+    "recommendation": [],
+    "tag": ["Female", "Family"],
+    "age_range": [30, 45]
+  },
+  {
+    "name": "밀튼스텔리 발찌",
+    "image_path": "miltonstella",
+    "price": 246000,
+    "recommendation": [],
+    "tag": ["Female", "Partner"],
+    "age_range": [20, 35]
+  },
+  {
+    "name": "닌텐도 스위치",
+    "image_path": "nintendo",
+    "price": 350000,
+    "recommendation": [],
+    "tag": ["Male","Female", "University Friend"],
+    "age_range": [20, 35]
   }
-
 ]
