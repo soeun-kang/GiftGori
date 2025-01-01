@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/navigation_edit_contact"
         android:name="com.example.tabs.ui.contacts.edit.EditFragment"
-        android:label="Edit"
+        android:label="연락처 수정"
         tools:layout="@layout/fragment_edit">
         <action
             android:id="@+id/edit_to_contact"

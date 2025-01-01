@@ -32,7 +32,7 @@ class ContactsAdapter(
         fun bind(contact: Contact) { // 데이터를 바인딩하는 함수
             binding.personName.text = contact.name
             val bDayFormatter = SimpleDateFormat("MM-dd", Locale.getDefault())
-            binding.personBirthday.text = "생일: "+bDayFormatter.format(contact.bDay)
+            binding.personBirthday.text = bDayFormatter.format(contact.bDay)
         }
     }
 

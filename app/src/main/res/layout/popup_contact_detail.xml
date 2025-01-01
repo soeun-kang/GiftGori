@@ -1,8 +1,8 @@
 <!--suppress AndroidDomInspection -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="410dp"
+    android:layout_width="420dp"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@drawable/border"
     android:strokeColor="@color/black"
     android:padding="16dp">
 
@@ -11,58 +11,35 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- 상단 프로필 영역 -->
+        <!-- 상단 헤더 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:paddingBottom="16dp">
 
-            <FrameLayout
-                android:layout_width="50dp"
-                android:layout_height="50dp">
-                <!-- 원형 이미지 -->
-                <View
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/delete_button"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_delete" />
 
-                    android:layout_marginEnd="16dp" />
-
-                <!-- 이니셜 -->
-                <TextView
-                    android:id="@+id/popupInitial"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:text="I"
-                    android:textAlignment="center"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
-            </FrameLayout>
-
-            <LinearLayout
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
-
-                <!-- 이름 -->
-                <TextView
-                    android:id="@+id/popupName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/full_name"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <!-- 생일 -->
-                <TextView
-                    android:id="@+id/popupBirthday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/birthday_yyyy_mm_dd"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
+                android:text="상세 페이지"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/editButton"
@@ -76,43 +53,173 @@
                 android:padding="0dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_edit_pen" />
-            <ImageButton
-                android:id="@+id/deleteButton"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/delete_button"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:padding="0dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_delete" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/popupPhoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tel_phonenumber"
-            android:textSize="14sp" />
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
 
-        <TextView
-            android:id="@+id/popupRecentContact"
-            android:layout_width="wrap_content"
+        <!-- 프로필 섹션 -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/recentcontact"
-            android:textSize="14sp" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingVertical="16dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_profile"
+                android:contentDescription="Profile Image" />
+
+            <!-- 이름 -->
+            <TextView
+                android:id="@+id/popupName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/full_name"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/userGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="그룹"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:paddingTop="4dp" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- 주요 정보 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingVertical="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <!-- 생일 -->
+                <TextView
+                    android:id="@+id/popupBirthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/birthday_yyyy_mm_dd"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="생일"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#DDDDDD" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/popupPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tel_phonenumber"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전화번호"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#DDDDDD" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/popupRecentContact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recentcontact"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="연락 기록"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
         <!-- Present History 버튼 -->
-        <Button
+        <!-- 주고받은 선물들 -->
+        <TextView
             android:id="@+id/buttonPresentHistory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-
             android:text="@string/present_history"
-            android:textColor="@color/white" />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingVertical="8dp"
+            android:gravity="center"
+            android:background="@drawable/border"/>
 
         <!-- Present History 리스트 -->
         <LinearLayout
@@ -131,6 +238,11 @@
                 android:nestedScrollingEnabled="false" />
         </LinearLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+
         <!-- 하단 버튼 -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -143,19 +255,18 @@
                 android:id="@+id/buttonAssign"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/white"
-                android:strokeColor="@color/black"
+                android:background="@drawable/border"
                 android:text="@string/assign"
-                android:textColor="@color/black" />
+                android:layout_margin="5dp"
+                android:textColor="@color/kakao_brown" />
 
             <Button
                 android:id="@+id/buttonRecommendation"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="@string/buttonToGallary"
-
-                android:textColor="@color/white" />
+                android:textColor="@color/kakao_brown" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

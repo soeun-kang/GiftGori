@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tabs.databinding.FragmentCalendarBinding
 import com.example.tabs.utils.models.Assigned
@@ -71,7 +72,9 @@ class CalendarFragment : Fragment() {
         val eventDate = formatter.parse(formattedDateString) ?: Date()
         // unfoldAssignedList에서 eventDate를 date로 가지고 있는 occasion들을 name과 occasion으로 새로운 NameOccasion을 만들어 nameOccasionList에 추가
         nameOccasionList.addAll(getNameOccasionList(eventDate))
-        recyclerView.adapter = CalendarAdapter(nameOccasionList)
+        recyclerView.adapter = CalendarAdapter(nameOccasionList,{
+            contactIndex -> moveToGallery(contactIndex)
+        })
 
         calendarView.setOnDayClickListener(object : OnDayClickListener {
             override fun onDayClick(eventDay: EventDay) {
@@ -82,7 +85,9 @@ class CalendarFragment : Fragment() {
                 val eventDate = formatter.parse(formattedDateString) ?: Date()
                 // unfoldAssignedList에서 eventDate를 date로 가지고 있는 occasion들을 name과 occasion으로 새로운 NameOccasion을 만들어 nameOccasionList에 추가
                 nameOccasionList.addAll(getNameOccasionList(eventDate))
-                recyclerView.adapter = CalendarAdapter(nameOccasionList)
+                recyclerView.adapter = CalendarAdapter(nameOccasionList,{
+                        contactIndex -> moveToGallery(contactIndex)
+                })
             }
         })
 
@@ -127,6 +132,15 @@ class CalendarFragment : Fragment() {
             calendarView.setEvents(events)
         }
 
+    }
+
+    fun moveToGallery(contactIndex: Int) {
+        val navController =
+            requireActivity().findNavController(R.id.nav_host_fragment_activity_main)
+        val bundle = Bundle()
+        bundle.putInt("contactIndex", contactIndex)
+
+        navController.navigate(R.id.navigation_gallery, bundle)
     }
 
     override fun onResume() {

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/border">
 
     <TextView
         android:id="@+id/personName"
@@ -12,7 +13,13 @@
         android:layout_weight="1"
         android:text="@string/full_name"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cake" />
 
     <TextView
         android:id="@+id/personBirthday"
@@ -20,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:text="@string/birthday"
+        android:textColor="@color/kakao_brown"
         android:textSize="16sp" />
 
 </LinearLayout>

@@ -73,7 +73,7 @@ class EditFragment : Fragment() {
                 }
             }
             val genderEdit = findViewById<RadioGroup>(R.id.radioGroupGender)
-            if (newContact.gender == "@string/male") genderEdit.check(R.id.radioMale)
+            if (newContact.gender == getString(R.string.male)) genderEdit.check(R.id.radioMale)
             else genderEdit.check(R.id.radioFemale)
 
             val spinnerRelationship: Spinner = findViewById(R.id.spinnerRelationship)
@@ -133,7 +133,7 @@ class EditFragment : Fragment() {
             newContact.apply {
                 name = view.findViewById<EditText>(R.id.editName).text.toString()
                 phoneNumber = view.findViewById<EditText>(R.id.editPhoneNumber).text.toString()
-                gender = if (view.findViewById<RadioGroup>(R.id.radioGroupGender).checkedRadioButtonId == R.id.radioMale) "@string/male" else "@string/female"
+                gender = if (view.findViewById<RadioGroup>(R.id.radioGroupGender).checkedRadioButtonId == R.id.radioMale) getString(R.string.male) else getString(R.string.female)
                 group = view.findViewById<Spinner>(R.id.spinnerRelationship).selectedItem.toString()
                 occasions = occasionAdapter.getItems()
                 presentHistory = presentAdapter.getItems()
