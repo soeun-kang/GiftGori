@@ -100,5 +100,4 @@ RecyclerView로 연락처 리스트 구현
 ---
 
 ### 선물고리 apk
-
-[](https://drive.google.com/file/d/1TSUIOvX9l4dT3Tr4XgPNshth_kyJnRhE/view?usp=drive_link)
+<a href="https://drive.google.com/file/d/1TSUIOvX9l4dT3Tr4XgPNshth_kyJnRhE/view?usp=drive_link">드라이브</a>
