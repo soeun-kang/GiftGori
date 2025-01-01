@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.tabs"
-        minSdk = 21
+        minSdk = 31
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -44,6 +44,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.core:core-splashscreen:1.0.0")
     implementation ("com.google.code.gson:gson:2.8.9")
     implementation("androidx.recyclerview:recyclerview:1.3.0")
     implementation(libs.androidx.core.ktx)
