@@ -26,6 +26,12 @@
                 android:orientation="vertical">
 
                 <!-- 이름 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="이름"
+                    android:textSize="16sp" />
                 <EditText
                     android:id="@+id/editName"
                     android:layout_width="match_parent"
@@ -37,7 +43,17 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
+
                 <!-- 생일: 날짜 입력 방식 필요 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="생일"
+                    android:textSize="16sp" />
                 <EditText
                     android:id="@+id/editBirthday"
                     android:layout_width="match_parent"
@@ -53,6 +69,10 @@
 
 
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,6 +105,24 @@
                 android:text="@string/female" />
         </RadioGroup>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="전화번호"
+            android:textSize="16sp" />
         <EditText
             android:id="@+id/editPhoneNumber"
             android:layout_width="match_parent"
@@ -96,6 +134,18 @@
             android:padding="12dp"
             android:textSize="14sp" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
         <!-- 관계 선택 -->
         <TextView
             android:layout_width="wrap_content"
@@ -113,15 +163,36 @@
             android:entries="@array/relationships" />
 
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
         <!-- Occasion 버튼 -->
         <include
             android:id="@+id/occasionDropdown"
             layout="@layout/custom_dropdown" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
         <!-- Present History 버튼 -->
         <include
             android:id="@+id/presentDropdown"
             layout="@layout/custom_dropdown" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
         <!-- 하단 버튼 -->
         <LinearLayout

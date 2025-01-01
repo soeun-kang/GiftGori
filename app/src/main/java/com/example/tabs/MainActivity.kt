@@ -69,6 +69,12 @@ class MainActivity : AppCompatActivity() {
         writeToInternalStorage()
     }
 
+    // 뒤로 가기 버튼 클릭 시 동작을 설정합니다.
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
     private fun writeToInternalStorage() {
         val manageJson = ManageJson(this)
         val jsonString = manageJson.getJsonDataFromAsset("contacts.json")
