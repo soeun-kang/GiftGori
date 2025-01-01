@@ -31,31 +31,31 @@
 
 **아이콘&스플래시 화면**
 
-![초기 스플래시 화면](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/2007c3ed-19e4-4592-933d-0968f6f14df0/GiftGori_splash-ezgif.com-video-to-gif-converter.gif)
+![초기 스플래시 화면](https://github.com/user-attachments/assets/26739935-bb3a-4c1f-bc82-882dbea2438e)
 
 초기 스플래시 화면
 
 ### Tab1: 달력
 
-![달력에 인물의 기념일 추가/삭제하는 기능](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/0386cf11-8fb7-49da-8911-a10ebb8012b7/GiftGori_Calendar-ezgif.com-video-to-gif-converter.gif)
+![달력에 인물의 기념일 추가/삭제하는 기능](https://github.com/user-attachments/assets/f4ba5954-f15c-4e09-a709-fe227c1e7841)
 
 달력에 인물의 기념일 추가/삭제하는 기능
 
 ### Tab2: 연락처 관리
 
-![RecyclerView로 연락처 리스트 구현](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/3a7726ff-5c1e-4820-b5c5-5554304c982f/GiftGori_contactscroll-ezgif.com-optimize.gif)
+![RecyclerView로 연락처 리스트 구현](https://github.com/user-attachments/assets/2c60f1e4-d758-4959-b90e-c27e9b1f9e1b)
 
 RecyclerView로 연락처 리스트 구현
 
-![연락처를 탭하면 상세페이지가 나온다](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/496e7847-9390-4599-b323-9d84cce057e5/GiftGori_detail-ezgif.com-video-to-gif-converter.gif)
+![연락처를 탭하면 상세페이지가 나온다](https://github.com/user-attachments/assets/df71c67c-f594-4c7e-8725-8bf42d5d01e8)
 
 연락처를 탭하면 상세페이지가 나온다
 
-![연락처의 세부사항을 수정하고 확인한다](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/8dcf47d0-25e8-4e92-990e-2c92191da82d/GiftGori_edit-ezgif.com-video-to-gif-converter.gif)
+![연락처의 세부사항을 수정하고 확인한다](https://github.com/user-attachments/assets/5b08a135-1502-4aff-83e1-91608d049718)
 
 연락처의 세부사항을 수정하고 확인한다
 
-![연락처를 삭제한다](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/bf10083b-f183-4503-b3e7-02e9ff213668/GiftGori_delete-ezgif.com-video-to-gif-converter.gif)
+![연락처를 삭제한다](https://github.com/user-attachments/assets/f5799bfe-41e0-4127-b326-11176ca4fffc)
 
 연락처를 삭제한다
 
@@ -66,19 +66,19 @@ RecyclerView로 연락처 리스트 구현
     - 성별과 연령대를 고려한 선물 추천💝
     - 관계(가족, 친구 등)를 고려한 선물 추천🌟
 
-![달력→해당 선물, 인물→해당 선물 이동 기능 구현](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/1183422e-9ff3-41e8-8dcd-4defed8f4944/GiftGori_Recommendation-ezgif.com-video-to-gif-converter.gif)
+![달력→해당 선물, 인물→해당 선물 이동 기능 구현](https://github.com/user-attachments/assets/ee1bd652-5f36-41ad-8810-1e193b27823f)
 
 달력→해당 선물, 인물→해당 선물 이동 기능 구현
 
-![검색 기능 구현](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/78d7a2c1-510f-480d-bd6d-152af3149807/GiftGori_search-ezgif.com-video-to-gif-converter_(1).gif)
+![검색 기능 구현](https://github.com/user-attachments/assets/dca85d2c-5d14-473c-bb2c-be0bd510d25b)
 
 검색 기능 구현
 
-![리스트들에 따른 수평/수직 스크롤 기능 구현](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/821900fd-eae4-4e13-b828-4494c9e62a96/GiftGori_scroll-ezgif.com-video-to-gif-converter.gif)
+![리스트들에 따른 수평/수직 스크롤 기능 구현](https://github.com/user-attachments/assets/927bfd50-9094-488c-889e-939686592f30)
 
 리스트들에 따른 수평/수직 스크롤 기능 구현
 
-![선물 상세 페이지 구현](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/e58c5669-ddf3-4959-b31f-a38824af8274/GiftGori_giftDetail-ezgif.com-video-to-gif-converter.gif)
+![선물 상세 페이지 구현](https://github.com/user-attachments/assets/57818a62-e817-4340-b639-0c9cc04fe6ba)
 
 선물 상세 페이지 구현
 
