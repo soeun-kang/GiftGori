@@ -27,14 +27,6 @@ class RecommendedGiftsAdapter(
     private val onItemClick: (GiftItem) -> Unit
 ) : RecyclerView.Adapter<RecommendedGiftsAdapter.GiftViewHolder>() {
 
-    init {
-        // 어댑터 생성 시 giftList 로그 출력
-        Log.d("RecommendedGiftsAdapter", "giftList size: ${giftList.size}")
-        giftList.forEach { gift ->
-            Log.d("RecommendedGiftsAdapter", "Gift: ${gift.name}, Price: ${gift.price}")
-        }
-    }
-
     class GiftViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val giftImage: ImageView = view.findViewById(R.id.giftImage)
         val giftName: TextView = view.findViewById(R.id.giftName)
@@ -53,15 +45,13 @@ class RecommendedGiftsAdapter(
         holder.giftName.text = gift.name
         holder.giftRecommendation.text = "추천!"
         holder.giftPrice.text = "${DecimalFormat("#,###").format(gift.price)}원"
+        Log.d("gift data", "${gift.name} ${gift.imagePath}")
+
 
         // 이미지 로드
         val resourceId = context.resources.getIdentifier(gift.imagePath, "drawable", context.packageName)
         if (resourceId != 0) {
-            Glide.with(context)
-                .load(resourceId)
-                .placeholder(android.R.drawable.ic_menu_gallery)
-                .error(android.R.drawable.ic_menu_report_image)
-                .into(holder.giftImage)
+            holder.giftImage.setImageResource(resourceId)
         } else {
             holder.giftImage.setImageResource(android.R.drawable.ic_menu_report_image)
         }
