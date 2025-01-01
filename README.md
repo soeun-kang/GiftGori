@@ -2,8 +2,9 @@
 
 > 감사한 사람, 고마운 인연들에게 마음을 표현할 수 있도록
 > 
+![선물고리_대표이미지](https://github.com/user-attachments/assets/18a9fe20-0596-406e-8b27-764e6f2c03b3)
 
-![선물고리_대표이미지.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/da117a2c-e012-4576-b7d2-f01906bf3da5/%EC%84%A0%EB%AC%BC%EA%B3%A0%EB%A6%AC_%EB%8C%80%ED%91%9C%EC%9D%B4%EB%AF%B8%EC%A7%80.png)
+
 
 시간이 흐를수록 소중한 인연과 감사한 사람들은 점점 많아지지만,
 바쁜 일상 속에서 그들에게 고마움이나 축하의 마음을 제때 전하지 못할 때가 많습니다.
