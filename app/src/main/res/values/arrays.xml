@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="relationships">
-        <item>Family</item>
-        <item>Partner</item>
-        <item>Coworker</item>
-        <item>High School Friend</item>
-        <item>University Friend</item>
-        <item>Middle School Friend</item>
+        <item>가족</item>
+        <item>애인</item>
+        <item>동료</item>
+        <item>고등학교 친구</item>
+        <item>대학교 친구</item>
+        <item>중학교 친구</item>
         <item>기타</item>
     </string-array>
 </resources>

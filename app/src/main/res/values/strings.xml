@@ -32,8 +32,8 @@
     <string name="edit_button">수정버튼</string>
     <string name="tel_phonenumber">전화번호: </string>
     <string name="recentcontact">최근 연락한 횟수</string>
-    <string name="assign">일정 등록</string>
-    <string name="unassign">등록 해제</string>
+    <string name="assign">기념일 알림받기</string>
+    <string name="unassign">기념일 알림해제</string>
     <string name="buttonToGallary">추천 선물 확인하기</string>
     <!-- 드롭다운-->
     <string name="editGift">선물 종류</string>

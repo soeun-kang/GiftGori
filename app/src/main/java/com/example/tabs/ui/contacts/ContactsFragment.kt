@@ -176,8 +176,8 @@ class ContactsFragment : Fragment(), OnItemClickListener {
     private fun showContactPopup(contact: Contact) {
         val popupView = layoutInflater.inflate(R.layout.popup_contact_detail, null)
 
-        val popupInitial = popupView.findViewById<TextView>(R.id.popupInitial)
         val popupName = popupView.findViewById<TextView>(R.id.popupName)
+        val popupGroup = popupView.findViewById<TextView>(R.id.userGroup)
         val popupBirthday = popupView.findViewById<TextView>(R.id.popupBirthday)
         val popupPhoneNumber = popupView.findViewById<TextView>(R.id.popupPhoneNumber)
         val popupRecentContact = popupView.findViewById<TextView>(R.id.popupRecentContact)
@@ -192,12 +192,12 @@ class ContactsFragment : Fragment(), OnItemClickListener {
             assignButton.text = getString(R.string.assign)
         }
 
-        popupInitial.text = "" + contact.name[0]
         popupName.text = contact.name
+        popupGroup.text = contact.group
         val bDayFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         popupBirthday.text = bDayFormatter.format(contact.bDay)
-        popupPhoneNumber.text = getString(R.string.tel_phonenumber) + " " + contact.phoneNumber
-        popupRecentContact.text = getString(R.string.recentcontact) + " " + contact.recentContact.toString()
+        popupPhoneNumber.text = contact.phoneNumber
+        popupRecentContact.text = contact.recentContact.toString()
 
         // popupWindow가 null인 경우에만 새로운 PopupWindow 객체를 생성
         if (popupWindow == null) {
@@ -239,7 +239,7 @@ class ContactsFragment : Fragment(), OnItemClickListener {
         }
 
         // 팝업 중 선물 목록 클릭 시
-        val presentHistoryButton = popupView.findViewById<Button>(R.id.buttonPresentHistory)
+        val presentHistoryButton = popupView.findViewById<TextView>(R.id.buttonPresentHistory)
         val presentHistoryLayout = popupView.findViewById<LinearLayout>(R.id.presentHistoryLayout)
         presentHistoryButton.setOnClickListener {
             val isVisible = presentHistoryLayout.visibility == View.VISIBLE
