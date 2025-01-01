@@ -35,7 +35,7 @@ class GalleryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d(TAG, "onCreateView: 시작됨")
+        Log.d(TAG, "onCreateView: 시작됨, arguments=${arguments?.getInt("contactIndex", -1)}")
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -53,19 +53,24 @@ class GalleryFragment : Fragment() {
         galleryViewModel.personData.observe(viewLifecycleOwner) { personDetailsList ->
             Log.d(TAG, "personData 변경 감지: ${personDetailsList?.size ?: 0}개의 데이터")
             if (personDetailsList.isNotEmpty()) {
+                // ViewPager 및 TabLayout 초기화
                 galleryAdapter.updateData(personDetailsList)
 
-                TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-                    tab.text = personDetailsList[position].name
-                }.attach()
+                if (binding.tabLayout.tabCount == 0) {
+                    TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+                        tab.text = personDetailsList[position].name
+                    }.attach()
+                    Log.d(TAG, "TabLayout 및 ViewPager 초기 설정 완료")
+                }
 
                 val contactIndex = arguments?.getInt("contactIndex", 0) ?: 0
                 binding.viewPager.setCurrentItem(contactIndex, false)
-                Log.d(TAG, "TabLayout 및 ViewPager 설정 완료")
+                Log.d(TAG, "ViewPager 초기화: contactIndex=$contactIndex")
             } else {
                 Log.w(TAG, "personDetailsList가 비어 있음")
             }
         }
+
         galleryViewModel.loadPersonData(requireContext())
         Log.d(TAG, "loadPersonData 호출 완료")
 
@@ -74,10 +79,22 @@ class GalleryFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val contactIndex = arguments?.getInt("contactIndex", 0) ?: 0
-        binding.viewPager.setCurrentItem(contactIndex, false)
-        Log.d(TAG, "onResume 호출됨: contactIndex=$contactIndex")
+        // 데이터 로드 여부 확인 후 초기화
+        galleryViewModel.personData.value?.let { personDetailsList ->
+            if (personDetailsList.isNotEmpty()) {
+                val contactIndex = arguments?.getInt("contactIndex", 0) ?: 0
+                if (binding.viewPager.currentItem != contactIndex) {
+                    binding.viewPager.setCurrentItem(contactIndex, false)
+                    Log.d(TAG, "onResume 호출됨: contactIndex=$contactIndex, ViewPager 갱신됨")
+                } else {
+                    Log.d(TAG, "onResume 호출됨: contactIndex=$contactIndex, ViewPager 이미 설정됨")
+                }
+            } else {
+                Log.w(TAG, "onResume 호출됨: personDetailsList가 비어 있음")
+            }
+        }
     }
+
 
     private fun setupMenuProvider() {
         requireActivity().addMenuProvider(object : MenuProvider {
@@ -167,13 +184,19 @@ class GalleryFragment : Fragment() {
             Log.e(TAG, "performSearch 중 예외 발생", e)
         }
     }
-
+    private var isSearchViewInitialized = false
     private fun updateSearchResults(newText: String) {
+        if (!isSearchViewInitialized) {
+            isSearchViewInitialized = true
+            Log.d(TAG, "SearchView 초기화 중, performSearch 호출 생략")
+            return
+        }
+
         Log.d(TAG, "updateSearchResults 호출: $newText")
         searchHandler.removeCallbacks(searchRunnable)
         searchHandler.postDelayed({
-            performSearch(newText)
-        }, 300) // 300ms 디바운스 추가
+            performSearch(newText) // 디바운스 후 호출
+        }, 300)
     }
 
     override fun onDestroyView() {

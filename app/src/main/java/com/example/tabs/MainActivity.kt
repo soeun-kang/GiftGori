@@ -1,6 +1,7 @@
 package com.example.tabs
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.findNavController
@@ -41,6 +42,13 @@ class MainActivity : AppCompatActivity() {
 
         // Navigation Bar 클릭 동작 명시적으로 처리
         navView.setOnItemSelectedListener { item ->
+            val currentDestinationId = navController.currentDestination?.id
+            Log.d("ContactsFragment", "Current Destination ID: $currentDestinationId, Selected Item ID: ${item.itemId}")
+            if (currentDestinationId == item.itemId) {
+                Log.d("ContactsFragment", "Tab already selected, no action needed.")
+                return@setOnItemSelectedListener true
+            }
+
             when (item.itemId) {
                 R.id.navigation_calendar -> {
                     navController.navigate(R.id.navigation_calendar)

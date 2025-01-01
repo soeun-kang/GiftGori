@@ -302,7 +302,13 @@ class ContactsFragment : Fragment(), OnItemClickListener {
                 val bundle = Bundle()
                 bundle.putInt("contactIndex", contactIndex)
 
+                Log.d("ContactsFragment", "Navigating to Gallery with contactIndex: $contactIndex")
                 navController.navigate(R.id.navigation_gallery, bundle)
+
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val currentDestination = navController.currentDestination?.id
+                    Log.d("ContactsFragment", "Current Destination after Navigation: $currentDestination")
+                }, 1000) // 1초 후 네비게이션 상태 확인
             } else {
                 println("Contact not found in Contactlist")
             }

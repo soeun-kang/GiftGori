@@ -2,6 +2,7 @@ package com.example.tabs.ui.gallery
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -172,6 +173,7 @@ class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
     override fun getItemCount(): Int = personDetailsList.size
 
     fun updateData(newData: List<PersonDetails>) {
+        Log.d("GalleryAdapter", "update data")
         personDetailsList = newData
         notifyDataSetChanged()
     }
