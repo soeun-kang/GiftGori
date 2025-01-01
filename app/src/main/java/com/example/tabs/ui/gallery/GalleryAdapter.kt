@@ -173,6 +173,7 @@ class GalleryAdapter(private var personDetailsList: List<PersonDetails>) :
     override fun getItemCount(): Int = personDetailsList.size
 
     fun updateData(newData: List<PersonDetails>) {
+        Log.d("GalleryAdapter", "update data")
         personDetailsList = newData
         notifyDataSetChanged()
     }
